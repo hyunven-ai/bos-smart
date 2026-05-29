@@ -169,7 +169,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 style={{ color: 'var(--pure-white)', fontSize: '0.95rem', fontWeight: 700, marginBottom: '2px' }}>WhatsApp Chat</h4>
-                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>+{formatPhoneDisplay(settings.whatsapp)}</p>
+                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>{formatPhoneDisplay(settings.whatsapp)}</p>
                   </div>
                 </a>
 
@@ -235,7 +235,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 style={{ color: 'var(--pure-white)', fontSize: '0.95rem', fontWeight: 700, marginBottom: '2px' }}>Telepon</h4>
-                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>+{formatPhoneDisplay(settings.whatsapp)}</p>
+                    <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '0.85rem' }}>{formatPhoneDisplay(settings.whatsapp)}</p>
                   </div>
                 </a>
               </div>

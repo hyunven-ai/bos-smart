@@ -102,10 +102,10 @@ export default function Navbar() {
             href={`https://wa.me/${whatsapp}?text=Halo%20BOS%20Tech,%20saya%20tertarik%20dengan%20produk%20Anda.`}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn btn-electric btn-shine"
+            className="btn btn-electric btn-shine header-wa-btn"
             style={{ padding: '10px 20px', fontSize: '0.85rem', borderRadius: '6px' }}
           >
-            <i className="ri-whatsapp-line" style={{ fontSize: '1.1rem' }}></i> Chat WhatsApp
+            <i className="ri-whatsapp-line" style={{ fontSize: '1.1rem' }}></i> <span className="wa-btn-text">Chat WhatsApp</span>
           </a>
           <button className={`hamburger ${menuActive ? 'active' : ''}`} id="hamburger-menu" onClick={toggleMenu} aria-label="Toggle Menu">
             <span></span>
