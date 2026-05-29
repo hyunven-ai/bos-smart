@@ -36,10 +36,10 @@ function ProductsContent() {
     if (p.status === 'hide') return false;
 
     const matchesCategory = (activeFilter === 'all' || p.category === activeFilter);
-    const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-                          (p.specs && p.specs.toLowerCase().includes(searchQuery.toLowerCase()));
-    
+    const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      p.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (p.specs && p.specs.toLowerCase().includes(searchQuery.toLowerCase()));
+
     return matchesCategory && matchesSearch;
   });
 
@@ -62,9 +62,9 @@ function ProductsContent() {
       {/* Main Catalog Content */}
       <section style={{ padding: '80px 0', backgroundColor: 'var(--off-white)' }}>
         <div className="container">
-          
+
           {/* Search Box */}
-          <div 
+          <div
             style={{
               maxWidth: '500px',
               margin: '0 auto 40px',
@@ -72,8 +72,8 @@ function ProductsContent() {
             }}
           >
             <i className="ri-search-line" style={{ position: 'absolute', top: '50%', left: '20px', transform: 'translateY(-50%)', color: 'var(--medium-gray)', fontSize: '1.2rem' }}></i>
-            <input 
-              type="text" 
+            <input
+              type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               style={{
@@ -86,13 +86,13 @@ function ProductsContent() {
                 boxShadow: '0 4px 15px rgba(0,0,0,0.02)',
                 outline: 'none',
                 transition: 'var(--transition-fast)'
-              }} 
+              }}
               placeholder="Cari nama produk atau spesifikasi teknis..."
             />
           </div>
 
           {/* Filter Buttons */}
-          <div 
+          <div
             style={{
               display: 'flex',
               justifyContent: 'center',
@@ -101,7 +101,7 @@ function ProductsContent() {
               marginBottom: '40px'
             }}
           >
-            <button 
+            <button
               onClick={() => setActiveFilter('all')}
               style={{
                 padding: '10px 24px',
@@ -121,7 +121,7 @@ function ProductsContent() {
             </button>
 
             {categories.map((cat) => (
-              <button 
+              <button
                 key={cat.id}
                 onClick={() => setActiveFilter(cat.id)}
                 style={{
@@ -144,7 +144,7 @@ function ProductsContent() {
           </div>
 
           {/* Category Banner Card */}
-          <div 
+          <div
             style={{
               backgroundColor: 'var(--pure-white)',
               borderRadius: '16px',
@@ -160,12 +160,12 @@ function ProductsContent() {
           >
             {/* Elegant top line decoration */}
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '4px', backgroundImage: 'linear-gradient(90deg, var(--electric-blue), var(--neon-blue))' }}></div>
-            
-            <span style={{ 
-              fontSize: '0.8rem', 
-              color: 'var(--electric-blue)', 
-              fontWeight: 700, 
-              textTransform: 'uppercase', 
+
+            <span style={{
+              fontSize: '0.8rem',
+              color: 'var(--electric-blue)',
+              fontWeight: 700,
+              textTransform: 'uppercase',
               letterSpacing: '2px',
               display: 'inline-block',
               marginBottom: '10px',
@@ -176,9 +176,9 @@ function ProductsContent() {
             }}>
               {activeFilter === 'all' ? 'KATALOG LENGKAP' : 'KATEGORI TERPILIH'}
             </span>
-            <h2 style={{ 
-              fontSize: '2rem', 
-              color: 'var(--primary-navy)', 
+            <h2 style={{
+              fontSize: '2rem',
+              color: 'var(--primary-navy)',
               fontWeight: 800,
               margin: '0 0 8px',
               fontFamily: 'var(--font-headings)',
@@ -186,9 +186,9 @@ function ProductsContent() {
             }}>
               {activeFilter === 'all' ? 'Semua Produk' : getCategoryName(activeFilter)}
             </h2>
-            <p style={{ 
-              fontSize: '1.05rem', 
-              color: 'var(--medium-gray)', 
+            <p style={{
+              fontSize: '1.05rem',
+              color: 'var(--medium-gray)',
               fontStyle: 'italic',
               margin: 0,
               maxWidth: '650px',
@@ -196,14 +196,14 @@ function ProductsContent() {
               marginRight: 'auto',
               lineHeight: 1.5
             }}>
-              {activeFilter === 'all' 
-                ? 'Menampilkan seluruh koleksi produk pintar, kelistrikan, dan peralatan rumah tangga terbaik dari BOS Tech.' 
+              {activeFilter === 'all'
+                ? 'Menampilkan seluruh koleksi produk pintar, kelistrikan, dan peralatan rumah tangga terbaik dari BOS SMART.'
                 : (categories.find(c => c.id === activeFilter)?.desc || '')}
             </p>
           </div>
 
           {/* Products Grid */}
-          <div 
+          <div
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))',
@@ -219,7 +219,7 @@ function ProductsContent() {
               </div>
             ) : (
               filteredProducts.map(p => (
-                <div 
+                <div
                   key={p.id}
                   onClick={() => setSelectedProduct(p)}
                   style={{
@@ -277,8 +277,8 @@ function ProductsContent() {
 
       {/* Product Detail Modal */}
       {selectedProduct && (
-        <ProductModal 
-          product={selectedProduct} 
+        <ProductModal
+          product={selectedProduct}
           categoryName={getCategoryName(selectedProduct.category)}
           whatsappNumber={whatsapp}
           onClose={() => setSelectedProduct(null)}

@@ -2,11 +2,11 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-export default function ScrollReveal({ 
-  children, 
-  animation = 'fade-up', 
-  delay = 0, 
-  duration = 800 
+export default function ScrollReveal({
+  children,
+  animation = 'fade-up',
+  delay = 0,
+  duration = 800
 }) {
   const ref = useRef(null);
   const [isRevealed, setIsRevealed] = useState(false);

@@ -11,7 +11,7 @@ export default function Home() {
     hero: {
       title: 'Smart Living Starts Here',
       subtitle: 'Home & Smart Products • Electrical & Technical Supply',
-      description: 'Solusi terintegrasi untuk kebutuhan rumah pintar modern dan pasokan kelistrikan berkualitas tinggi. Sourcing langsung dari pabrik China dengan Quality Control ketat dan After Sales Support profesional.',
+      description: 'Solusi terintegrasi untuk kebutuhan rumah pintar modern dan pasokan kelistrikan berkualitas tinggi. Dari pabrik lokal dan sourching China dengan Quality Control ketat dan After Sales Support professional.',
       ctaPrimary: 'Lihat Produk',
       ctaSecondary: 'Hubungi Kami'
     },
@@ -27,7 +27,7 @@ export default function Home() {
   useEffect(() => {
     const database = BOS_DB.getData();
     setDb(database);
-    
+
     const settings = BOS_DB.getSettings();
     if (settings && settings.whatsapp) {
       setWhatsapp(settings.whatsapp);
@@ -82,7 +82,7 @@ export default function Home() {
               </div>
             </ScrollReveal>
           </div>
-          
+
           <div className="hero-visual">
             {/* Floating Glassmorphism Grid Badge (Mockup) */}
             <ScrollReveal animation="zoom-in" delay={300} duration={1000}>
@@ -244,11 +244,11 @@ export default function Home() {
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
               <h2 className="cta-banner-title">Siap Memulai Kerjasama Bersama Kami?</h2>
               <p className="cta-banner-desc">Hubungi kami sekarang untuk kebutuhan produk Smart Home, Home Living, maupun Electrical & Technical Supply Anda.</p>
-              <a 
-                href={`https://wa.me/${whatsapp}?text=Halo%20BOS%20Tech,%20saya%20tertarik%20memulai%20kerjasama%20untuk%20produk%20smart%20home%20/%20kelistrikan.`} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn btn-whatsapp btn-shine" 
+              <a
+                href={`https://wa.me/${whatsapp}?text=Halo%20BOS%20SMART,%20saya%20tertarik%20memulai%20kerjasama%20untuk%20produk%20smart%20home%20/%20kelistrikan.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-whatsapp btn-shine"
                 style={{ fontSize: '1.05rem', padding: '14px 32px', borderRadius: '30px' }}
               >
                 <i className="ri-whatsapp-line" style={{ fontSize: '1.3rem' }}></i> Hubungi Kami via WhatsApp

@@ -52,12 +52,17 @@ export default function Navbar() {
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        <Link href="/" className="logo-wrapper" onClick={closeMenu}>
+        <Link href="/" className="logo-wrapper" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <img
             src="https://res.cloudinary.com/dzojrrwtr/image/upload/v1779721354/bos-smart-2_kpycfu.webp"
             alt="BOS Smart Logo"
-            style={{ height: '60px', width: 'auto', display: 'block', objectFit: 'contain' }}
+            style={{ height: '54px', width: 'auto', display: 'block', objectFit: 'contain' }}
           />
+          <div className="logo-divider" style={{ height: '30px', width: '1.5px', backgroundColor: 'var(--primary-navy)', opacity: 0.15 }}></div>
+          <div className="logo-text-pt" style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.1', fontFamily: 'var(--font-headings)' }}>
+            <span style={{ fontSize: '0.72rem', fontWeight: '800', color: 'var(--primary-navy)', letterSpacing: '0.5px', textTransform: 'uppercase' }}>PT BERKAT</span>
+            <span style={{ fontSize: '0.72rem', fontWeight: '800', color: 'var(--primary-navy)', letterSpacing: '0.5px', textTransform: 'uppercase' }}>OPTIMAL SEMESTA</span>
+          </div>
         </Link>
 
         {/* Nav Links */}

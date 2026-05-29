@@ -10,9 +10,9 @@ const defaultData = {
     whatsapp: '6281217309510',
     email: 'Info@bos-smart.com',
     address: 'Ruko Villa Mutiara Cikarang 2 Blok F1 No. 05, Cikarang Utara, Bekasi, Jawa Barat 17530',
-    seoTitle: 'BOS Tech - Smart Living Starts Here',
-    seoDescription: 'Solusi perangkat Smart Home, Kitchen & Home Living modern, dan pasokan Electrical & Technical Supply premium dari PT Berkat Optimal Semesta (BOS Tech).',
-    seoKeywords: 'smart home, kitchen living, electrical supply, stabilizer, tuya, smart socket, cikarang, bekasi, pt berkat optimal semesta, bos tech',
+    seoTitle: 'BOS SMART - Smart Living Starts Here',
+    seoDescription: 'Solusi perangkat Smart Home, Kitchen & Home Living modern, dan pasokan Electrical & Technical Supply premium dari PT Berkat Optimal Semesta (BOS SMART).',
+    seoKeywords: 'smart home, kitchen living, electrical supply, stabilizer, tuya, smart socket, cikarang, bekasi, pt berkat optimal semesta, bos smart',
     admin: {
       username: 'admin',
       password: 'admin123'
@@ -22,7 +22,7 @@ const defaultData = {
     hero: {
       title: 'Smart Living Starts Here',
       subtitle: 'Home & Smart Products • Electrical & Technical Supply',
-      description: 'Solusi terintegrasi untuk kebutuhan rumah pintar modern dan pasokan kelistrikan berkualitas tinggi. Sourcing langsung dari pabrik China dengan Quality Control ketat dan After Sales Support profesional.',
+      description: 'Solusi terintegrasi untuk kebutuhan rumah pintar modern dan pasokan kelistrikan berkualitas tinggi. Dari pabrik lokal dan sourching China dengan Quality Control ketat dan After Sales Support professional.',
       ctaPrimary: 'Lihat Produk',
       ctaSecondary: 'Hubungi Kami'
     },
@@ -38,13 +38,13 @@ const defaultData = {
       ]
     },
     whyChooseUs: {
-      title: 'Mengapa Memilih BOS Tech?',
+      title: 'Mengapa Memilih BOS SMART?',
       description: 'Kami menawarkan solusi menyeluruh dari hulu ke hilir untuk memastikan Anda mendapatkan produk berkualitas tinggi dengan harga pabrik yang kompetitif dan dukungan purna jual jangka panjang.',
       pillars: [
         {
           id: 'sourcing',
           title: 'Direct Sourcing',
-          desc: 'Akses langsung ke pabrik-pabrik manufaktur terpercaya di China untuk efisiensi biaya luar biasa.'
+          desc: 'Akses langsung ke pabrik-pabrik manufaktur terpercaya untuk efisiensi biaya luar biasa.'
         },
         {
           id: 'qc',
@@ -59,7 +59,7 @@ const defaultData = {
         {
           id: 'support',
           title: 'Professional Support',
-          desc: 'Dukungan teknis, konsultasi produk, dan garansi resmi oleh tim ahli kami di Cikarang.'
+          desc: 'Dukungan teknis, konsultasi produk, dan garansi resmi oleh tim ahli kami.'
         },
         {
           id: 'complete',
@@ -205,6 +205,21 @@ export function getDB() {
 
     // Migrasi Kategori & Tagline Otomatis
     let updated = false;
+
+    // Migrasi Deskripsi Hero Otomatis
+    if (parsed.pages && parsed.pages.hero && parsed.pages.hero.description) {
+      const newDesc = 'Solusi terintegrasi untuk kebutuhan rumah pintar modern dan pasokan kelistrikan berkualitas tinggi. Dari pabrik lokal dan sourching China dengan Quality Control ketat dan After Sales Support professional.';
+
+      // Normalisasi spasi dan trim untuk perbandingan yang akurat
+      const descNormalized = parsed.pages.hero.description.trim().replace(/\s+/g, ' ');
+      const newDescNormalized = newDesc.trim().replace(/\s+/g, ' ');
+
+      if (descNormalized.startsWith('Solusi terintegrasi untuk kebutuhan rumah pintar modern') && descNormalized !== newDescNormalized) {
+        parsed.pages.hero.description = newDesc;
+        updated = true;
+      }
+    }
+
     if (parsed.categories) {
       // 1. BOS HOME & LIVING
       const kitchenCat = parsed.categories.find(c => c.id === 'kitchen-living');

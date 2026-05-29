@@ -81,7 +81,7 @@ export default function WhyChooseUs() {
             <div style={{ backgroundColor: 'var(--pure-white)', padding: '30px 20px', borderRadius: '12px', border: '1px solid var(--light-gray)', boxShadow: '0 4px 15px rgba(0,0,0,0.01)' }}>
               <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--primary-navy)', color: 'var(--pure-white)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontWeight: 700 }}>3</div>
               <h4 style={{ marginBottom: '8px', color: 'var(--primary-navy)' }}>Pengiriman Aman</h4>
-              <p style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>Prosedur logistik handal guna menjamin perlengkapan tiba di Cikarang dalam keadaan sempurna.</p>
+              <p style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>Prosedur logistik handal guna menjamin perlengkapan tiba dalam keadaan sempurna.</p>
             </div>
             {/* Step 4 */}
             <div style={{ backgroundColor: 'var(--pure-white)', padding: '30px 20px', borderRadius: '12px', border: '1px solid var(--light-gray)', boxShadow: '0 4px 15px rgba(0,0,0,0.01)' }}>

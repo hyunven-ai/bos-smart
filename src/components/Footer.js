@@ -129,7 +129,7 @@ export default function Footer() {
 
         {/* Copyright Bottom */}
         <div className="footer-bottom">
-          <p>&copy; {year} BOS Tech. All Rights Reserved.</p>
+          <p>&copy; {year} BOS SMART. All Rights Reserved.</p>
           <div className="footer-legal-links">
             <a href="#" className="footer-legal-link">Privacy Policy</a>
             <a href="#" className="footer-legal-link">Terms & Conditions</a>
