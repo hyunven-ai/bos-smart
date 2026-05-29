@@ -50,7 +50,7 @@ export default function Home() {
     price: 'ri-price-tag-3-line',
     support: 'ri-customer-service-2-line',
     complete: 'ri-briefcase-line',
-    partnership: 'ri-handshake-line'
+    partnership: 'ri-shake-hands-line'
   };
 
   return (

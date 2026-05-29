@@ -31,7 +31,7 @@ export default function About() {
 
       {/* Profil Utama */}
       <section style={{ padding: '80px 0', backgroundColor: 'var(--pure-white)' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'center' }}>
+        <div className="container responsive-grid-2" style={{ gap: '60px', alignItems: 'center' }}>
           <div>
             <span className="section-tag" style={{ textAlign: 'left' }}>SIAPA KAMI</span>
             <h2 style={{ fontSize: '2rem', color: 'var(--primary-navy)', marginBottom: '24px' }}>PT Berkat Optimal Semesta</h2>
@@ -51,7 +51,7 @@ export default function About() {
 
       {/* Visi & Misi Section */}
       <section style={{ padding: '80px 0', backgroundColor: 'var(--off-white)', borderTop: '1px solid var(--light-gray)', borderBottom: '1px solid var(--light-gray)' }}>
-        <div className="container" style={{ display: 'grid', gridTemplateColumns: '5.5fr 6.5fr', gap: '50px' }}>
+        <div className="container responsive-grid-2" style={{ gap: '50px' }}>
           {/* Visi */}
           <div style={{ backgroundColor: 'var(--pure-white)', padding: '48px', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.02)', border: '1px solid rgba(0,0,0,0.03)' }}>
             <div style={{ width: '50px', height: '50px', backgroundColor: 'rgba(0,82,204,0.05)', color: 'var(--electric-blue)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '24px' }}>
@@ -90,7 +90,7 @@ export default function About() {
             <p className="section-subtitle">Sebagai entitas perseroan terbatas resmi, kami mengutamakan kepatuhan hukum dan mutu layanan prima.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px', textAlign: 'center' }}>
+          <div className="responsive-grid-3" style={{ gap: '30px', textAlign: 'center' }}>
             <div style={{ padding: '30px', backgroundColor: 'var(--off-white)', borderRadius: '12px', border: '1px solid rgba(0,0,0,0.02)' }}>
               <div style={{ fontSize: '2.5rem', color: 'var(--electric-blue)', marginBottom: '12px' }}><i className="ri-survey-line"></i></div>
               <h4 style={{ fontSize: '1.1rem', color: 'var(--primary-navy)', marginBottom: '8px' }}>PT Resmi Berbadan Hukum</h4>

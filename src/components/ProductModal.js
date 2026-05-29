@@ -34,6 +34,7 @@ export default function ProductModal({ product, categoryName, whatsappNumber, on
       }}
     >
       <div 
+        className="responsive-modal-grid"
         style={{
           backgroundColor: 'var(--pure-white)',
           borderRadius: '18px',
@@ -41,8 +42,6 @@ export default function ProductModal({ product, categoryName, whatsappNumber, on
           maxWidth: '850px',
           overflow: 'hidden',
           boxShadow: '0 25px 50px rgba(0,0,0,0.5)',
-          display: 'grid',
-          gridTemplateColumns: '1.1fr 1.3fr',
           position: 'relative',
           animation: 'slideUp 0.4s cubic-bezier(0.4, 0, 0.2, 1)'
         }}
@@ -82,7 +81,7 @@ export default function ProductModal({ product, categoryName, whatsappNumber, on
         </button>
 
         {/* Kiri: Foto Gambar */}
-        <div style={{ height: '100%', minHeight: '400px', backgroundColor: 'var(--primary-navy)', position: 'relative' }}>
+        <div className="responsive-modal-image">
           <img src={product.image} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </div>
 

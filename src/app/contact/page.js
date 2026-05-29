@@ -113,9 +113,8 @@ export default function Contact() {
         <div className="container">
 
           <div
+            className="responsive-grid-2"
             style={{
-              display: 'grid',
-              gridTemplateColumns: '5fr 7fr',
               gap: '50px',
               marginBottom: '80px'
             }}
@@ -266,7 +265,7 @@ export default function Contact() {
               <p style={{ color: 'var(--medium-gray)', marginBottom: '30px', fontSize: '0.9rem' }}>Punya pertanyaan spesifik atau membutuhkan dokumen penawaran? Kirim pesan dan kami akan merespons dalam 1x24 jam.</p>
 
               <form onSubmit={handleSubmit}>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                <div className="responsive-grid-2" style={{ gap: '20px' }}>
                   <div>
                     <label style={{ display: 'block', fontFamily: 'var(--font-headings)', fontWeight: 600, fontSize: '0.88rem', color: 'var(--primary-navy)', marginBottom: '8px' }} htmlFor="form-name">Nama Lengkap *</label>
                     <input type="text" id="form-name" style={{ width: '100%', padding: '12px 16px', borderRadius: '8px', border: '1px solid var(--light-gray)', fontFamily: 'var(--font-body)', fontSize: '0.9rem', outline: 'none', marginBottom: '20px' }} placeholder="Nama Anda" value={formData.name} onChange={handleInputChange} required />

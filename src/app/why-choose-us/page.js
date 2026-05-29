@@ -23,7 +23,7 @@ export default function WhyChooseUs() {
     price: 'ri-price-tag-3-line',
     support: 'ri-customer-service-2-line',
     complete: 'ri-briefcase-line',
-    partnership: 'ri-handshake-line'
+    partnership: 'ri-shake-hands-line'
   };
 
   return (
@@ -40,7 +40,7 @@ export default function WhyChooseUs() {
       {/* 6 Pillars Deep Dive Grid */}
       <section style={{ padding: '80px 0', backgroundColor: 'var(--pure-white)' }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px' }}>
+          <div className="responsive-grid-3" style={{ gap: '30px' }}>
             {content.pillars?.map((pillar) => {
               const icon = icons[pillar.id] || 'ri-checkbox-circle-line';
               return (
@@ -64,12 +64,12 @@ export default function WhyChooseUs() {
             <p className="section-subtitle">Bagaimana kami mengawal kualitas produk dari manufaktur global hingga tiba di gudang operasional Anda.</p>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '24px', textAlign: 'center', position: 'relative' }}>
+          <div className="responsive-grid-4" style={{ gap: '24px', textAlign: 'center', position: 'relative' }}>
             {/* Step 1 */}
             <div style={{ backgroundColor: 'var(--pure-white)', padding: '30px 20px', borderRadius: '12px', border: '1px solid var(--light-gray)', boxShadow: '0 4px 15px rgba(0,0,0,0.01)' }}>
               <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--primary-navy)', color: 'var(--pure-white)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontWeight: 700 }}>1</div>
               <h4 style={{ marginBottom: '8px', color: 'var(--primary-navy)' }}>Pabrik Terverifikasi</h4>
-              <p style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>Menjalin kemitraan langsung hanya dengan manufaktur di China berstandar internasional.</p>
+              <p style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>Menjalin kemitraan langsung dengan manufaktur Lokal dan China berstandar internasional.</p>
             </div>
             {/* Step 2 */}
             <div style={{ backgroundColor: 'var(--pure-white)', padding: '30px 20px', borderRadius: '12px', border: '1px solid var(--light-gray)', boxShadow: '0 4px 15px rgba(0,0,0,0.01)' }}>

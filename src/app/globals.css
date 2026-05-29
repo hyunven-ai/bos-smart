@@ -1203,6 +1203,10 @@ img {
 }
 
 @media (max-width: 576px) {
+  .logo-divider,
+  .logo-text-pt {
+    display: none !important;
+  }
   .hero-title {
     font-size: 2.25rem;
   }
@@ -1608,5 +1612,75 @@ img {
 
 .category-card:hover .category-img img {
   transform: scale(1.06);
+}
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT & MODAL UTILITIES
+   ========================================================================== */
+
+/* 2-Column Responsive Grid */
+.responsive-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 768px) {
+  .responsive-grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 3-Column Responsive Grid */
+.responsive-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 992px) {
+  .responsive-grid-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 576px) {
+  .responsive-grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 4-Column Responsive Grid */
+.responsive-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 992px) {
+  .responsive-grid-4 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+@media (max-width: 576px) {
+  .responsive-grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Responsive Product Modal Grid */
+.responsive-modal-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1.3fr;
+}
+.responsive-modal-image {
+  height: 100%;
+  min-height: 400px;
+  background-color: var(--primary-navy);
+  position: relative;
+}
+@media (max-width: 768px) {
+  .responsive-modal-grid {
+    grid-template-columns: 1fr !important;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+  .responsive-modal-image {
+    height: 220px !important;
+    min-height: 220px !important;
+  }
 }
 
