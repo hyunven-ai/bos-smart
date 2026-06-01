@@ -61,12 +61,17 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Kolom Tentang */}
           <div className="footer-col-about">
-            <Link href="/" className="logo-wrapper">
+            <Link href="/" className="logo-wrapper" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <img
                 src="/assets/bos-smart.webp"
                 alt="BOS Smart Logo"
                 style={{ height: '40px', width: 'auto', display: 'block', objectFit: 'contain' }}
               />
+              <div className="logo-divider" style={{ height: '26px', width: '1.5px', backgroundColor: 'var(--pure-white)', opacity: 0.2 }}></div>
+              <div className="logo-text-pt" style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.1', fontFamily: 'var(--font-headings)' }}>
+                <span style={{ fontSize: '0.65rem', fontWeight: '800', color: 'var(--pure-white)', letterSpacing: '0.5px', textTransform: 'uppercase' }}>PT BERKAT</span>
+                <span style={{ fontSize: '0.65rem', fontWeight: '800', color: 'var(--pure-white)', letterSpacing: '0.5px', textTransform: 'uppercase' }}>OPTIMAL SEMESTA</span>
+              </div>
             </Link>
             <p style={{ marginTop: '15px' }}>
               Penyedia solusi produk pintar (BOS SMART), peralatan rumah tangga modern (BOS HOME & LIVING), serta sistem daya listrik & industri (Stabilizer & Transformer Solutions) premium.
