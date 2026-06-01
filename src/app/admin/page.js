@@ -918,18 +918,40 @@ export default function AdminPanel() {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '20px', alignItems: 'flex-end' }}>
-                <div className="admin-form-group">
+              <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '20px', alignItems: 'flex-end', marginBottom: crudProdImageUrl ? '0' : '20px' }}>
+                <div className="admin-form-group" style={{ marginBottom: 0 }}>
                   <label className="admin-label" htmlFor="crud-prod-image-url">URL Foto Produk (Unsplash/ImgBB) *</label>
                   <input type="text" id="crud-prod-image-url" className="admin-input" placeholder="https://..." value={crudProdImageUrl} onChange={(e) => setCrudProdImageUrl(e.target.value)} required />
                 </div>
-                <div className="admin-form-group">
-                  <label className="admin-label" style={{ cursor: 'pointer', backgroundColor: 'var(--dark-navy)', border: '1px dashed var(--glass-border)', padding: '10px', borderRadius: '8px', display: 'block', textAlign: 'center', fontSize: '0.8rem', margin: 0 }}>
+                <div className="admin-form-group" style={{ marginBottom: 0 }}>
+                  <label className="admin-label" style={{ cursor: 'pointer', backgroundColor: 'var(--dark-navy)', border: '1px dashed var(--glass-border)', padding: '10px', borderRadius: '8px', display: 'block', textAlign: 'center', fontSize: '0.8rem', margin: 0, transition: 'var(--transition-fast)' }} onMouseOver={(e) => e.currentTarget.style.borderColor='var(--electric-blue)'} onMouseOut={(e) => e.currentTarget.style.borderColor='var(--glass-border)'}>
                     <i className="ri-image-add-line" style={{ fontSize: '1.1rem', color: 'var(--neon-blue)', display: 'block', marginBottom: '4px' }}></i> Upload Foto Lokal
                     <input type="file" style={{ display: 'none' }} accept="image/*" onChange={handleLocalImageUpload} />
                   </label>
                 </div>
               </div>
+              
+              {crudProdImageUrl && (
+                <div style={{ marginBottom: '20px', padding: '12px', backgroundColor: 'rgba(0, 0, 0, 0.2)', borderRadius: '8px', border: '1px solid var(--glass-border)', display: 'flex', alignItems: 'center', gap: '16px' }}>
+                  <div style={{ width: '80px', height: '80px', borderRadius: '6px', overflow: 'hidden', flexShrink: 0, backgroundColor: 'var(--dark-navy)', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <img 
+                      src={crudProdImageUrl} 
+                      alt="Preview" 
+                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = 'https://via.placeholder.com/80?text=Error';
+                      }}
+                    />
+                  </div>
+                  <div style={{ flex: 1, overflow: 'hidden' }}>
+                    <h4 style={{ color: 'var(--pure-white)', fontSize: '0.85rem', margin: '0 0 4px' }}>Preview Gambar</h4>
+                    <p style={{ color: 'var(--medium-gray)', fontSize: '0.75rem', margin: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      {crudProdImageUrl}
+                    </p>
+                  </div>
+                </div>
+              )}
 
               <div className="admin-form-group">
                 <label className="admin-label" htmlFor="crud-prod-description">Deskripsi Produk *</label>
