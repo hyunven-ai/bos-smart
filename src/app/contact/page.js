@@ -20,14 +20,22 @@ export default function Contact() {
   const [toastMessage, setToastMessage] = useState('');
 
   useEffect(() => {
-    const currentSettings = BOS_DB.getSettings();
-    if (currentSettings) {
-      setSettings({
-        whatsapp: currentSettings.whatsapp || '628123456789',
-        email: currentSettings.email || 'Info@bos-smart.com',
-        address: currentSettings.address || 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530'
-      });
-    }
+    const loadSettings = async () => {
+      try {
+        const currentSettings = await BOS_DB.getSettings();
+        if (currentSettings) {
+          setSettings({
+            whatsapp: currentSettings.whatsapp || '628123456789',
+            email: currentSettings.email || 'Info@bos-smart.com',
+            address: currentSettings.address || 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530'
+          });
+        }
+      } catch (err) {
+        console.error('Failed to load settings:', err);
+      }
+    };
+
+    loadSettings();
   }, []);
 
   const formatPhoneDisplay = (phone) => {
@@ -300,14 +308,14 @@ export default function Contact() {
           </div>
           <div style={{ height: '450px', borderRadius: '16px', overflow: 'hidden', border: '1px solid var(--light-gray)', boxShadow: '0 4px 20px rgba(0,0,0,0.03)' }}>
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126906.94056247942!2d107.13504107629618!3d-6.284566779435649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e698504ba4e6b99%3A0xe2128ae34cb02f!2sJababeka%20Industrial%20Estate!5e0!3m2!1sen!2sid!4v1716612000000!5m2!1sen!2sid"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(settings.address)}&t=&z=13&ie=UTF8&iwloc=&output=embed`}
               width="100%"
               height="100%"
               style={{ border: 0 }}
-              allowfullscreen=""
+              allowFullScreen=""
               loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              title="Gudang BOS SMART Cikarang Map"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Lokasi BOS SMART Map"
             >
             </iframe>
           </div>

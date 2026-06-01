@@ -13,10 +13,18 @@ export default function Navbar() {
 
   // SSR-safe load settings
   useEffect(() => {
-    const settings = BOS_DB.getSettings();
-    if (settings && settings.whatsapp) {
-      setWhatsapp(settings.whatsapp);
-    }
+    const loadSettings = async () => {
+      try {
+        const settings = await BOS_DB.getSettings();
+        if (settings && settings.whatsapp) {
+          setWhatsapp(settings.whatsapp);
+        }
+      } catch (err) {
+        console.error('Failed to load settings:', err);
+      }
+    };
+
+    loadSettings();
 
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -27,7 +35,10 @@ export default function Navbar() {
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   const toggleMenu = () => {

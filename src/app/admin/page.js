@@ -68,58 +68,59 @@ export default function AdminPanel() {
     }, 3500);
   };
 
-  const loadCMSData = () => {
-    const currentDb = BOS_DB.getData();
-    setDb(currentDb);
-    
-    const dbProducts = BOS_DB.getProducts();
-    const dbCategories = BOS_DB.getCategories();
-    const dbInbox = BOS_DB.getInbox();
-    const dbSettings = BOS_DB.getSettings();
-    const dbPages = BOS_DB.getPages();
+  const loadCMSData = async () => {
+    try {
+      const dbProducts = await BOS_DB.getProducts();
+      const dbCategories = await BOS_DB.getCategories();
+      const dbInbox = await BOS_DB.getInbox();
+      const dbSettings = await BOS_DB.getSettings();
+      const dbPages = await BOS_DB.getPages();
 
-    if (dbProducts) setProducts(dbProducts);
-    if (dbCategories) {
-      setCategories(dbCategories);
-      if (dbCategories.length > 0) setCrudProdCategory(dbCategories[0].id);
-    }
-    if (dbInbox) setInbox(dbInbox);
-    
-    if (dbSettings) {
-      setSettings(dbSettings);
-      setContactForm({ whatsapp: dbSettings.whatsapp, email: dbSettings.email, address: dbSettings.address });
-      setSeoForm({ seoTitle: dbSettings.seoTitle, seoDescription: dbSettings.seoDescription, seoKeywords: dbSettings.seoKeywords });
-      setAdminAccountForm({ username: dbSettings.admin.username, password: dbSettings.admin.password });
-    }
+      if (dbProducts) setProducts(dbProducts);
+      if (dbCategories) {
+        setCategories(dbCategories);
+        if (dbCategories.length > 0 && !crudProdCategory) setCrudProdCategory(dbCategories[0].id);
+      }
+      if (dbInbox) setInbox(dbInbox);
+      
+      if (dbSettings) {
+        setSettings(dbSettings);
+        setContactForm({ whatsapp: dbSettings.whatsapp, email: dbSettings.email, address: dbSettings.address });
+        setSeoForm({ seoTitle: dbSettings.seoTitle, seoDescription: dbSettings.seoDescription, seoKeywords: dbSettings.seoKeywords });
+        setAdminAccountForm({ username: dbSettings.admin.username, password: dbSettings.admin.password });
+      }
 
-    if (dbPages) {
-      setPages(dbPages);
-      if (dbPages.hero) {
-        setHeroForm({
-          title: dbPages.hero.title,
-          subtitle: dbPages.hero.subtitle,
-          description: dbPages.hero.description,
-          ctaPrimary: dbPages.hero.ctaPrimary,
-          ctaSecondary: dbPages.hero.ctaSecondary
-        });
+      if (dbPages) {
+        setPages(dbPages);
+        if (dbPages.hero) {
+          setHeroForm({
+            title: dbPages.hero.title,
+            subtitle: dbPages.hero.subtitle,
+            description: dbPages.hero.description,
+            ctaPrimary: dbPages.hero.ctaPrimary,
+            ctaSecondary: dbPages.hero.ctaSecondary
+          });
+        }
+        if (dbPages.about) {
+          setAboutForm({
+            title: dbPages.about.title,
+            description: dbPages.about.description,
+            vision: dbPages.about.vision,
+            mission: dbPages.about.mission.join('\n')
+          });
+        }
       }
-      if (dbPages.about) {
-        setAboutForm({
-          title: dbPages.about.title,
-          description: dbPages.about.description,
-          vision: dbPages.about.vision,
-          mission: dbPages.about.mission.join('\n')
-        });
-      }
+    } catch (err) {
+      console.error('Error loading CMS data:', err);
     }
   };
 
   // Login handler
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    const currentSettings = BOS_DB.getSettings();
+    const currentSettings = await BOS_DB.getSettings();
 
-    if (loginUsername === currentSettings.admin.username && loginPassword === currentSettings.admin.password) {
+    if (currentSettings && loginUsername === currentSettings.admin.username && loginPassword === currentSettings.admin.password) {
       sessionStorage.setItem('bos_admin_session', 'true');
       setIsLoggedIn(true);
       setLoginError(false);
@@ -201,15 +202,15 @@ export default function AdminPanel() {
     setShowProductModal(true);
   };
 
-  const handleDeleteProduct = (prodId, prodName) => {
+  const handleDeleteProduct = async (prodId, prodName) => {
     if (confirm(`Apakah Anda yakin ingin menghapus produk "${prodName}"?`)) {
-      BOS_DB.deleteProduct(prodId);
+      await BOS_DB.deleteProduct(prodId);
       showToast('Produk berhasil dihapus!');
       loadCMSData();
     }
   };
 
-  const handleProductSubmit = (e) => {
+  const handleProductSubmit = async (e) => {
     e.preventDefault();
 
     const productToSave = {
@@ -225,7 +226,7 @@ export default function AdminPanel() {
       productToSave.id = crudProdId;
     }
 
-    BOS_DB.saveProduct(productToSave);
+    await BOS_DB.saveProduct(productToSave);
     showToast(crudProdId ? 'Produk berhasil diedit!' : 'Produk baru berhasil ditambahkan!');
     setShowProductModal(false);
     loadCMSData();
@@ -239,15 +240,15 @@ export default function AdminPanel() {
     setCatIdReadOnly(true);
   };
 
-  const handleDeleteCategory = (catId) => {
+  const handleDeleteCategory = async (catId) => {
     if (confirm(`Apakah Anda yakin menghapus kategori "${catId}"? Produk pada kategori ini tidak akan terhapus.`)) {
-      BOS_DB.deleteCategory(catId);
+      await BOS_DB.deleteCategory(catId);
       showToast('Kategori berhasil dihapus!');
       loadCMSData();
     }
   };
 
-  const handleCategorySubmit = (e) => {
+  const handleCategorySubmit = async (e) => {
     e.preventDefault();
     const cleanId = crudCatId.trim().toLowerCase().replace(/\s+/g, '-');
     const categoryToSave = {
@@ -256,7 +257,7 @@ export default function AdminPanel() {
       desc: crudCatDesc.trim()
     };
 
-    BOS_DB.saveCategory(categoryToSave);
+    await BOS_DB.saveCategory(categoryToSave);
     showToast('Kategori berhasil disimpan!');
     
     // reset form
@@ -269,29 +270,29 @@ export default function AdminPanel() {
   };
 
   // INBOX MARK STATUS
-  const handleMarkMessage = (msgId, currentStatus) => {
+  const handleMarkMessage = async (msgId, currentStatus) => {
     const nextStatus = currentStatus === 'unread' ? 'read' : 'unread';
-    BOS_DB.markMessageStatus(msgId, nextStatus);
+    await BOS_DB.markMessageStatus(msgId, nextStatus);
     showToast(nextStatus === 'read' ? 'Pesan ditandai sudah dibaca.' : 'Pesan ditandai belum dibaca.');
     loadCMSData();
   };
 
-  const handleDeleteMessage = (msgId) => {
+  const handleDeleteMessage = async (msgId) => {
     if (confirm('Apakah Anda yakin ingin menghapus pesan ini?')) {
-      BOS_DB.deleteMessage(msgId);
+      await BOS_DB.deleteMessage(msgId);
       showToast('Pesan berhasil dihapus!');
       loadCMSData();
     }
   };
 
   // PAGES CONTENT SUBMIT
-  const handleHeroSubmit = (e) => {
+  const handleHeroSubmit = async (e) => {
     e.preventDefault();
-    BOS_DB.updatePageContent('hero', heroForm);
+    await BOS_DB.updatePageContent('hero', heroForm);
     showToast('Konten Hero Banner utama disimpan!');
   };
 
-  const handleAboutSubmit = (e) => {
+  const handleAboutSubmit = async (e) => {
     e.preventDefault();
     const updatedAbout = {
       title: aboutForm.title.trim(),
@@ -299,15 +300,15 @@ export default function AdminPanel() {
       vision: aboutForm.vision.trim(),
       mission: aboutForm.mission.trim().split('\n').filter(l => l.trim() !== '')
     };
-    BOS_DB.updatePageContent('about', updatedAbout);
+    await BOS_DB.updatePageContent('about', updatedAbout);
     showToast('Profil perusahaan About Us berhasil disimpan!');
   };
 
   // SYSTEM SETTINGS SUBMIT
-  const handleContactSubmit = (e) => {
+  const handleContactSubmit = async (e) => {
     e.preventDefault();
     const cleanWA = contactForm.whatsapp.trim().replace(/\D/g, '');
-    BOS_DB.updateSettings({
+    await BOS_DB.updateSettings({
       whatsapp: cleanWA,
       email: contactForm.email.trim(),
       address: contactForm.address.trim()
@@ -315,15 +316,15 @@ export default function AdminPanel() {
     showToast('Pengaturan kontak & alamat disimpan!');
   };
 
-  const handleSeoSubmit = (e) => {
+  const handleSeoSubmit = async (e) => {
     e.preventDefault();
-    BOS_DB.updateSettings(seoForm);
+    await BOS_DB.updateSettings(seoForm);
     showToast('Pengaturan SEO Metadata berhasil disimpan!');
   };
 
-  const handleAdminAccountSubmit = (e) => {
+  const handleAdminAccountSubmit = async (e) => {
     e.preventDefault();
-    BOS_DB.updateSettings({
+    await BOS_DB.updateSettings({
       admin: {
         username: adminAccountForm.username.trim(),
         password: adminAccountForm.password
@@ -332,51 +333,17 @@ export default function AdminPanel() {
     showToast('Kredensial Akun Admin berhasil diubah!');
   };
 
-  // DEV ZONE ACTIONS
+  // DEV ZONE ACTIONS (Disabled for Postgres DB)
   const handleResetDB = () => {
-    if (confirm('PERINGATAN: Apakah Anda yakin ingin mereset seluruh database ke setelan awal demo? Produk baru dan inbox pesan akan terhapus permanen!')) {
-      BOS_DB.resetToDefault();
-      showToast('Database berhasil direset.');
-      setTimeout(() => window.location.reload(), 1200);
-    }
+    showToast('Fitur Reset dinonaktifkan untuk Database SQL.');
   };
 
   const handleExportDB = () => {
-    const dataStr = localStorage.getItem('bos_smart_db');
-    if (!dataStr) return;
-
-    const blob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'bos_smart_db_backup.json';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    showToast('Database berhasil diekspor! Cadangan diunduh.');
+    showToast('Fitur Export JSON dinonaktifkan untuk Database SQL.');
   };
 
   const handleImportDB = (e) => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = function(uploadEvent) {
-      try {
-        const importedJSON = JSON.parse(uploadEvent.target.result);
-        if (importedJSON.settings && importedJSON.categories && importedJSON.products) {
-          localStorage.setItem('bos_smart_db', JSON.stringify(importedJSON));
-          showToast('Database berhasil diimpor & dipulihkan!');
-          setTimeout(() => window.location.reload(), 1200);
-        } else {
-          showToast('Gagal Impor! Cadangan tidak valid.', 'error');
-        }
-      } catch (err) {
-        showToast('File JSON rusak atau tidak terbaca.', 'error');
-      }
-    };
-    reader.readAsText(file);
+    showToast('Fitur Import JSON dinonaktifkan untuk Database SQL.');
   };
 
   // Filtered Products list in Table

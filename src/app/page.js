@@ -25,23 +25,28 @@ export default function Home() {
   const [whatsapp, setWhatsapp] = useState('628123456789');
 
   useEffect(() => {
-    const database = BOS_DB.getData();
-    setDb(database);
+    const loadData = async () => {
+      try {
+        const settings = await BOS_DB.getSettings();
+        if (settings && settings.whatsapp) {
+          setWhatsapp(settings.whatsapp);
+        }
 
-    const settings = BOS_DB.getSettings();
-    if (settings && settings.whatsapp) {
-      setWhatsapp(settings.whatsapp);
-    }
+        const currentPages = await BOS_DB.getPages();
+        if (currentPages) {
+          setPages(currentPages);
+        }
 
-    const currentPages = BOS_DB.getPages();
-    if (currentPages) {
-      setPages(currentPages);
-    }
+        const currentCategories = await BOS_DB.getCategories();
+        if (currentCategories) {
+          setCategories(currentCategories);
+        }
+      } catch (err) {
+        console.error('Failed to load data:', err);
+      }
+    };
 
-    const currentCategories = BOS_DB.getCategories();
-    if (currentCategories) {
-      setCategories(currentCategories);
-    }
+    loadData();
   }, []);
 
   const icons = {

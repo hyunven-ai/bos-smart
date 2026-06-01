@@ -16,13 +16,21 @@ function ProductsContent() {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   useEffect(() => {
-    const dbProducts = BOS_DB.getProducts();
-    const dbCategories = BOS_DB.getCategories();
-    const settings = BOS_DB.getSettings();
+    const loadData = async () => {
+      try {
+        const dbProducts = await BOS_DB.getProducts();
+        const dbCategories = await BOS_DB.getCategories();
+        const settings = await BOS_DB.getSettings();
 
-    if (dbProducts) setProducts(dbProducts);
-    if (dbCategories) setCategories(dbCategories);
-    if (settings && settings.whatsapp) setWhatsapp(settings.whatsapp);
+        if (dbProducts) setProducts(dbProducts);
+        if (dbCategories) setCategories(dbCategories);
+        if (settings && settings.whatsapp) setWhatsapp(settings.whatsapp);
+      } catch (err) {
+        console.error('Failed to load data:', err);
+      }
+    };
+
+    loadData();
 
     // Tangkap category parameter dari URL jika ada
     const catParam = searchParams.get('category');

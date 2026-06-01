@@ -16,14 +16,23 @@ export default function Footer() {
 
   useEffect(() => {
     setYear(new Date().getFullYear());
-    const currentSettings = BOS_DB.getSettings();
-    if (currentSettings) {
-      setSettings({
-        whatsapp: currentSettings.whatsapp || '628123456789',
-        email: currentSettings.email || 'Info@bos-smart.com',
-        address: currentSettings.address || 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530'
-      });
-    }
+    
+    const loadSettings = async () => {
+      try {
+        const currentSettings = await BOS_DB.getSettings();
+        if (currentSettings) {
+          setSettings({
+            whatsapp: currentSettings.whatsapp || '628123456789',
+            email: currentSettings.email || 'Info@bos-smart.com',
+            address: currentSettings.address || 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530'
+          });
+        }
+      } catch (err) {
+        console.error('Failed to load settings:', err);
+      }
+    };
+
+    loadSettings();
   }, []);
 
   const formatPhoneDisplay = (phone) => {
