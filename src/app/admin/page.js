@@ -161,8 +161,8 @@ export default function AdminPanel() {
     return phone;
   };
 
-  // Local Image Upload (base64)
-  const handleLocalImageUpload = (e) => {
+  // Cloudflare R2 Image Upload
+  const handleLocalImageUpload = async (e) => {
     const file = e.target.files[0];
     if (!file) return;
 
@@ -171,12 +171,28 @@ export default function AdminPanel() {
       return;
     }
 
-    const reader = new FileReader();
-    reader.onload = function(uploadEvent) {
-      setCrudProdImageUrl(uploadEvent.target.result);
-      showToast('Foto lokal berhasil diunggah & dikonversi!');
-    };
-    reader.readAsDataURL(file);
+    showToast('Mengunggah gambar ke R2...');
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const res = await fetch('/api/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await res.json();
+      if (res.ok && data.url) {
+        setCrudProdImageUrl(data.url);
+        showToast('Gambar berhasil diunggah ke R2!');
+      } else {
+        showToast(data.error || 'Gagal mengunggah gambar.', 'error');
+      }
+    } catch (error) {
+      console.error(error);
+      showToast('Terjadi kesalahan jaringan saat mengunggah.', 'error');
+    }
   };
 
   // CRUD PRODUCTS OPERATION
