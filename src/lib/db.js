@@ -6,7 +6,7 @@
 export const BOS_DB = {
   // 1. SETTINGS
   getSettings: async function () {
-    const res = await fetch('/api/settings');
+    const res = await fetch('/api/settings', { cache: 'no-store' });
     if (!res.ok) return null;
     return await res.json();
   },
@@ -21,7 +21,7 @@ export const BOS_DB = {
 
   // 2. PAGES CONTENT
   getPages: async function () {
-    const res = await fetch('/api/pages');
+    const res = await fetch('/api/pages', { cache: 'no-store' });
     if (!res.ok) return null;
     return await res.json();
   },
@@ -36,7 +36,7 @@ export const BOS_DB = {
 
   // 3. CATEGORIES
   getCategories: async function () {
-    const res = await fetch('/api/categories');
+    const res = await fetch('/api/categories', { cache: 'no-store' });
     if (!res.ok) return [];
     return await res.json();
   },
@@ -57,7 +57,7 @@ export const BOS_DB = {
 
   // 4. PRODUCTS
   getProducts: async function () {
-    const res = await fetch('/api/products');
+    const res = await fetch('/api/products', { cache: 'no-store' });
     if (!res.ok) return [];
     return await res.json();
   },
@@ -81,7 +81,7 @@ export const BOS_DB = {
 
   // 5. INBOX
   getInbox: async function () {
-    const res = await fetch('/api/inbox');
+    const res = await fetch('/api/inbox', { cache: 'no-store' });
     if (!res.ok) return [];
     return await res.json();
   },

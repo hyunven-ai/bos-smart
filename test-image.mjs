@@ -9,7 +9,7 @@ async function fix() {
   for (const p of products) {
     if (p.image && p.image.includes('.r2.dev/')) {
       const filename = p.image.split('.r2.dev/')[1];
-      const newUrl = `/api/images/${filename}`;
+      const newUrl = `${process.env.R2_PUBLIC_URL}/${filename}`;
       await sql`UPDATE products SET image = ${newUrl} WHERE id = ${p.id}`;
       console.log(`Updated ${p.id} to ${newUrl}`);
     }

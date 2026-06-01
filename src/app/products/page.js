@@ -14,6 +14,7 @@ function ProductsContent() {
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
@@ -27,6 +28,8 @@ function ProductsContent() {
         if (settings && settings.whatsapp) setWhatsapp(settings.whatsapp);
       } catch (err) {
         console.error('Failed to load data:', err);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -219,7 +222,16 @@ function ProductsContent() {
               marginBottom: '80px'
             }}
           >
-            {filteredProducts.length === 0 ? (
+            {isLoading ? (
+              <div style={{ gridColumn: '1/-1', textAlign: 'center', padding: '100px 20px', color: 'var(--medium-gray)' }}>
+                <i className="ri-loader-4-line" style={{ fontSize: '3rem', color: 'var(--electric-blue)', display: 'inline-block', animation: 'spin 1s linear infinite', marginBottom: '16px' }}></i>
+                <h3>Memuat Produk...</h3>
+                <p>Silakan tunggu sebentar.</p>
+                <style dangerouslySetInnerHTML={{__html: `
+                  @keyframes spin { 100% { transform: rotate(360deg); } }
+                `}} />
+              </div>
+            ) : filteredProducts.length === 0 ? (
               <div style={{ gridColumn: '1/-1', textAlign: 'center', padding: '60px 20px', color: 'var(--medium-gray)' }}>
                 <i className="ri-search-line" style={{ fontSize: '3rem', color: 'var(--light-gray)', display: 'block', marginBottom: '16px' }}></i>
                 <h3>Produk Tidak Ditemukan</h3>

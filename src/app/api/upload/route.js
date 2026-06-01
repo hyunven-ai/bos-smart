@@ -23,8 +23,8 @@ export async function POST(request) {
 
     await r2Client.send(command);
 
-    // Menggunakan API internal kita sebagai proxy karena Telkomsel memblokir r2.dev
-    const publicUrl = `/api/images/${fileName}`;
+    // Menggunakan R2_PUBLIC_URL (Custom Domain) langsung agar lebih cepat dan tidak membebani server
+    const publicUrl = `${process.env.R2_PUBLIC_URL}/${fileName}`;
 
     return NextResponse.json({ success: true, url: publicUrl });
   } catch (error) {

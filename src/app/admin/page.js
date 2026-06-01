@@ -306,6 +306,7 @@ export default function AdminPanel() {
     e.preventDefault();
     await BOS_DB.updatePageContent('hero', heroForm);
     showToast('Konten Hero Banner utama disimpan!');
+    loadCMSData();
   };
 
   const handleAboutSubmit = async (e) => {
@@ -318,6 +319,7 @@ export default function AdminPanel() {
     };
     await BOS_DB.updatePageContent('about', updatedAbout);
     showToast('Profil perusahaan About Us berhasil disimpan!');
+    loadCMSData();
   };
 
   // SYSTEM SETTINGS SUBMIT
@@ -330,12 +332,14 @@ export default function AdminPanel() {
       address: contactForm.address.trim()
     });
     showToast('Pengaturan kontak & alamat disimpan!');
+    loadCMSData();
   };
 
   const handleSeoSubmit = async (e) => {
     e.preventDefault();
     await BOS_DB.updateSettings(seoForm);
     showToast('Pengaturan SEO Metadata berhasil disimpan!');
+    loadCMSData();
   };
 
   const handleAdminAccountSubmit = async (e) => {
@@ -347,6 +351,7 @@ export default function AdminPanel() {
       }
     });
     showToast('Kredensial Akun Admin berhasil diubah!');
+    loadCMSData();
   };
 
   // DEV ZONE ACTIONS (Disabled for Postgres DB)
