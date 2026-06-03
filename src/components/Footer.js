@@ -11,7 +11,11 @@ export default function Footer() {
   const [settings, setSettings] = useState({
     whatsapp: '628123456789',
     email: 'Info@bos-smart.comm',
-    address: 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530'
+    address: 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530',
+    facebook: '',
+    instagram: '',
+    threads: '',
+    tiktok: ''
   });
 
   useEffect(() => {
@@ -24,7 +28,11 @@ export default function Footer() {
           setSettings({
             whatsapp: currentSettings.whatsapp || '628123456789',
             email: currentSettings.email || 'Info@bos-smart.com',
-            address: currentSettings.address || 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530'
+            address: currentSettings.address || 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530',
+            facebook: currentSettings.facebook || '',
+            instagram: currentSettings.instagram || '',
+            threads: currentSettings.threads || '',
+            tiktok: currentSettings.tiktok || ''
           });
         }
       } catch (err) {
@@ -77,10 +85,10 @@ export default function Footer() {
               Penyedia solusi produk pintar (BOS SMART), peralatan rumah tangga modern (BOS HOME & LIVING), serta sistem daya listrik & industri (Stabilizer & Transformer Solutions) premium.
             </p>
             <div className="footer-socials">
-              <a href="#" className="footer-social-icon"><i className="ri-facebook-fill"></i></a>
-              <a href="#" className="footer-social-icon"><i className="ri-instagram-line"></i></a>
-              <a href="#" className="footer-social-icon"><i className="ri-linkedin-fill"></i></a>
-              <a href="#" className="footer-social-icon"><i className="ri-youtube-fill"></i></a>
+              {settings.facebook && <a href={settings.facebook} target="_blank" rel="noopener noreferrer" className="footer-social-icon"><i className="ri-facebook-fill"></i></a>}
+              {settings.instagram && <a href={settings.instagram} target="_blank" rel="noopener noreferrer" className="footer-social-icon"><i className="ri-instagram-line"></i></a>}
+              {settings.threads && <a href={settings.threads} target="_blank" rel="noopener noreferrer" className="footer-social-icon"><i className="ri-threads-fill"></i></a>}
+              {settings.tiktok && <a href={settings.tiktok} target="_blank" rel="noopener noreferrer" className="footer-social-icon"><i className="ri-tiktok-fill"></i></a>}
             </div>
           </div>
 

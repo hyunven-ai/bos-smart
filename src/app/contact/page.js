@@ -7,7 +7,11 @@ export default function Contact() {
   const [settings, setSettings] = useState({
     whatsapp: '628123456789',
     email: 'Info@bos-smart.com',
-    address: 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530'
+    address: 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530',
+    facebook: '',
+    instagram: '',
+    threads: '',
+    tiktok: ''
   });
 
   const [formData, setFormData] = useState({
@@ -27,7 +31,11 @@ export default function Contact() {
           setSettings({
             whatsapp: currentSettings.whatsapp || '628123456789',
             email: currentSettings.email || 'Info@bos-smart.com',
-            address: currentSettings.address || 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530'
+            address: currentSettings.address || 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530',
+            facebook: currentSettings.facebook || '',
+            instagram: currentSettings.instagram || '',
+            threads: currentSettings.threads || '',
+            tiktok: currentSettings.tiktok || ''
           });
         }
       } catch (err) {
@@ -247,8 +255,37 @@ export default function Contact() {
                 </a>
               </div>
 
+              {/* Media Sosial */}
+              {(settings.facebook || settings.instagram || settings.threads || settings.tiktok) && (
+                <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '30px', marginTop: '10px' }}>
+                  <h5 style={{ color: 'var(--pure-white)', fontWeight: 700, marginBottom: '16px', fontSize: '1rem' }}>Media Sosial Kami</h5>
+                  <div style={{ display: 'flex', gap: '12px' }}>
+                    {settings.facebook && (
+                      <a href={settings.facebook} target="_blank" rel="noopener noreferrer" style={{ width: '42px', height: '42px', backgroundColor: 'rgba(255,255,255,0.05)', color: 'var(--pure-white)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', transition: 'var(--transition-fast)' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1877F2'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; }}>
+                        <i className="ri-facebook-fill"></i>
+                      </a>
+                    )}
+                    {settings.instagram && (
+                      <a href={settings.instagram} target="_blank" rel="noopener noreferrer" style={{ width: '42px', height: '42px', backgroundColor: 'rgba(255,255,255,0.05)', color: 'var(--pure-white)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', transition: 'var(--transition-fast)' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#E1306C'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; }}>
+                        <i className="ri-instagram-line"></i>
+                      </a>
+                    )}
+                    {settings.threads && (
+                      <a href={settings.threads} target="_blank" rel="noopener noreferrer" style={{ width: '42px', height: '42px', backgroundColor: 'rgba(255,255,255,0.05)', color: 'var(--pure-white)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', transition: 'var(--transition-fast)' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#000000'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; }}>
+                        <i className="ri-threads-fill"></i>
+                      </a>
+                    )}
+                    {settings.tiktok && (
+                      <a href={settings.tiktok} target="_blank" rel="noopener noreferrer" style={{ width: '42px', height: '42px', backgroundColor: 'rgba(255,255,255,0.05)', color: 'var(--pure-white)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', transition: 'var(--transition-fast)' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#000000'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; }}>
+                        <i className="ri-tiktok-fill"></i>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              )}
+
               {/* Alamat Fisik di Cikarang */}
-              <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '30px', marginTop: '40px', display: 'flex', gap: '16px' }}>
+              <div style={{ borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '30px', marginTop: '30px', display: 'flex', gap: '16px' }}>
                 <div style={{ width: '46px', height: '46px', backgroundColor: 'rgba(255,255,255,0.05)', color: 'var(--pure-white)', border: 'none', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.3rem' }}>
                   <i className="ri-map-pin-line"></i>
                 </div>

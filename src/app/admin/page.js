@@ -47,7 +47,7 @@ export default function AdminPanel() {
   const [aboutForm, setAboutForm] = useState({ title: '', description: '', vision: '', mission: '' });
 
   // Settings forms
-  const [contactForm, setContactForm] = useState({ whatsapp: '', email: '', address: '' });
+  const [contactForm, setContactForm] = useState({ whatsapp: '', email: '', address: '', facebook: '', instagram: '', threads: '', tiktok: '' });
   const [seoForm, setSeoForm] = useState({ seoTitle: '', seoDescription: '', seoKeywords: '' });
   const [adminAccountForm, setAdminAccountForm] = useState({ username: '', password: '' });
 
@@ -85,7 +85,7 @@ export default function AdminPanel() {
       
       if (dbSettings) {
         setSettings(dbSettings);
-        setContactForm({ whatsapp: dbSettings.whatsapp, email: dbSettings.email, address: dbSettings.address });
+        setContactForm({ whatsapp: dbSettings.whatsapp, email: dbSettings.email, address: dbSettings.address, facebook: dbSettings.facebook || '', instagram: dbSettings.instagram || '', threads: dbSettings.threads || '', tiktok: dbSettings.tiktok || '' });
         setSeoForm({ seoTitle: dbSettings.seoTitle, seoDescription: dbSettings.seoDescription, seoKeywords: dbSettings.seoKeywords });
         setAdminAccountForm({ username: dbSettings.admin.username, password: dbSettings.admin.password });
       }
@@ -329,7 +329,11 @@ export default function AdminPanel() {
     await BOS_DB.updateSettings({
       whatsapp: cleanWA,
       email: contactForm.email.trim(),
-      address: contactForm.address.trim()
+      address: contactForm.address.trim(),
+      facebook: contactForm.facebook.trim(),
+      instagram: contactForm.instagram.trim(),
+      threads: contactForm.threads.trim(),
+      tiktok: contactForm.tiktok.trim()
     });
     showToast('Pengaturan kontak & alamat disimpan!');
     loadCMSData();
@@ -821,6 +825,26 @@ export default function AdminPanel() {
                   <div className="admin-form-group">
                     <label className="admin-label" htmlFor="settings-address">Alamat Gudang / Kantor Fisik</label>
                     <input type="text" id="settings-address" className="admin-input" value={contactForm.address} onChange={(e) => setContactForm({ ...contactForm, address: e.target.value })} required />
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                    <div className="admin-form-group">
+                      <label className="admin-label" htmlFor="settings-instagram">Link Instagram (kosongkan jika belum ada)</label>
+                      <input type="text" id="settings-instagram" className="admin-input" placeholder="https://instagram.com/..." value={contactForm.instagram} onChange={(e) => setContactForm({ ...contactForm, instagram: e.target.value })} />
+                    </div>
+                    <div className="admin-form-group">
+                      <label className="admin-label" htmlFor="settings-threads">Link Threads (kosongkan jika belum ada)</label>
+                      <input type="text" id="settings-threads" className="admin-input" placeholder="https://threads.net/..." value={contactForm.threads} onChange={(e) => setContactForm({ ...contactForm, threads: e.target.value })} />
+                    </div>
+                  </div>
+                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px' }}>
+                    <div className="admin-form-group">
+                      <label className="admin-label" htmlFor="settings-facebook">Link Facebook (kosongkan jika belum ada)</label>
+                      <input type="text" id="settings-facebook" className="admin-input" placeholder="https://facebook.com/..." value={contactForm.facebook} onChange={(e) => setContactForm({ ...contactForm, facebook: e.target.value })} />
+                    </div>
+                    <div className="admin-form-group">
+                      <label className="admin-label" htmlFor="settings-tiktok">Link TikTok (kosongkan jika belum ada)</label>
+                      <input type="text" id="settings-tiktok" className="admin-input" placeholder="https://tiktok.com/..." value={contactForm.tiktok} onChange={(e) => setContactForm({ ...contactForm, tiktok: e.target.value })} />
+                    </div>
                   </div>
                   <button type="submit" className="btn btn-electric" style={{ padding: '10px 24px' }}>Simpan Informasi Kontak</button>
                 </form>

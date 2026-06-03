@@ -13,6 +13,10 @@ export async function GET() {
       whatsapp: row.whatsapp,
       email: row.email,
       address: row.address,
+      facebook: row.facebook,
+      instagram: row.instagram,
+      threads: row.threads,
+      tiktok: row.tiktok,
       seoTitle: row.seo_title,
       seoDescription: row.seo_description,
       seoKeywords: row.seo_keywords,
@@ -36,6 +40,10 @@ export async function PUT(request) {
     if (body.whatsapp !== undefined) setClauses.push(sql`whatsapp = ${body.whatsapp}`);
     if (body.email !== undefined) setClauses.push(sql`email = ${body.email}`);
     if (body.address !== undefined) setClauses.push(sql`address = ${body.address}`);
+    if (body.facebook !== undefined) setClauses.push(sql`facebook = ${body.facebook}`);
+    if (body.instagram !== undefined) setClauses.push(sql`instagram = ${body.instagram}`);
+    if (body.threads !== undefined) setClauses.push(sql`threads = ${body.threads}`);
+    if (body.tiktok !== undefined) setClauses.push(sql`tiktok = ${body.tiktok}`);
     if (body.seoTitle !== undefined) setClauses.push(sql`seo_title = ${body.seoTitle}`);
     if (body.seoDescription !== undefined) setClauses.push(sql`seo_description = ${body.seoDescription}`);
     if (body.seoKeywords !== undefined) setClauses.push(sql`seo_keywords = ${body.seoKeywords}`);
@@ -51,6 +59,10 @@ export async function PUT(request) {
           whatsapp = COALESCE(${body.whatsapp !== undefined ? body.whatsapp : null}, whatsapp),
           email = COALESCE(${body.email !== undefined ? body.email : null}, email),
           address = COALESCE(${body.address !== undefined ? body.address : null}, address),
+          facebook = COALESCE(${body.facebook !== undefined ? body.facebook : null}, facebook),
+          instagram = COALESCE(${body.instagram !== undefined ? body.instagram : null}, instagram),
+          threads = COALESCE(${body.threads !== undefined ? body.threads : null}, threads),
+          tiktok = COALESCE(${body.tiktok !== undefined ? body.tiktok : null}, tiktok),
           seo_title = COALESCE(${body.seoTitle !== undefined ? body.seoTitle : null}, seo_title),
           seo_description = COALESCE(${body.seoDescription !== undefined ? body.seoDescription : null}, seo_description),
           seo_keywords = COALESCE(${body.seoKeywords !== undefined ? body.seoKeywords : null}, seo_keywords),
