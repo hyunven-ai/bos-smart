@@ -1203,9 +1203,11 @@ img {
 }
 
 @media (max-width: 576px) {
-  .logo-divider,
-  .logo-text-pt {
+  .logo-divider {
     display: none !important;
+  }
+  .logo-text-pt {
+    display: flex !important;
   }
   .hero-title {
     font-size: 2.25rem;
