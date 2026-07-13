@@ -160,6 +160,138 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Mini Company Profile Section */}
+      <section className="mini-profile-section" id="about-mini">
+        <div className="container">
+          <div className="profile-intro-grid">
+            <div>
+              <ScrollReveal animation="fade-right" duration={800}>
+                <span className="section-tag" style={{ textAlign: 'left' }}>COMPANY PROFILE</span>
+                <h2 style={{ fontSize: '2.25rem', color: 'var(--primary-navy)', marginBottom: '20px' }}>
+                  PT Berkat Optimal Semesta
+                </h2>
+                <div className="profile-tagline">
+                  <i className="ri-lightbulb-flash-line"></i> Innovate • Optimize • Grow Together
+                </div>
+                <p className="profile-desc">
+                  PT Berkat Optimal Semesta adalah perusahaan yang bergerak di bidang perdagangan dan distribusi produk elektronik dengan fokus pada tiga pilar utama bisnis: smart home solutions, power management systems, dan official distribution lighting products.
+                </p>
+                <p className="profile-desc">
+                  Kami berkomitmen menyediakan produk berkualitas yang mendukung kebutuhan rumah tangga modern, sektor komersial, serta proyek industri ringan dengan pendekatan bisnis yang efisien dan berkelanjutan.
+                </p>
+              </ScrollReveal>
+            </div>
+            <div style={{ position: 'relative' }}>
+              <ScrollReveal animation="fade-left" delay={200} duration={800}>
+                <div style={{ position: 'absolute', width: '100%', height: '100%', top: '12px', left: '12px', border: '2px dashed var(--neon-blue)', borderRadius: '12px', pointerEvents: 'none' }}></div>
+                <img 
+                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" 
+                  alt="PT Berkat Optimal Semesta Office Showcase" 
+                  style={{ borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.08)', width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
+                />
+              </ScrollReveal>
+            </div>
+          </div>
+
+          <div className="profile-pillars-grid">
+            <ScrollReveal animation="fade-up" delay={100} duration={800}>
+              <div className="pillar-card">
+                <div className="pillar-number">01</div>
+                <h3 className="pillar-title">Smart Home & Smart Living</h3>
+                <p className="pillar-desc">
+                  Penyediaan produk elektronik rumah tangga modern yang mendukung efisiensi, kenyamanan, dan gaya hidup berbasis teknologi pintar.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={200} duration={800}>
+              <div className="pillar-card">
+                <div className="pillar-number">02</div>
+                <h3 className="pillar-title">Power Solution</h3>
+                <p className="pillar-desc">
+                  Distribusi solusi kelistrikan seperti voltage stabilizer, transformer, dan perangkat proteksi daya untuk kebutuhan rumah tangga, komersial, dan proyek.
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-up" delay={300} duration={800}>
+              <div className="pillar-card">
+                <div className="pillar-number">03</div>
+                <h3 className="pillar-title">Professional Lighting</h3>
+                <p className="pillar-desc">
+                  Distribusi resmi produk pencahayaan dari OSRAM & Ledvance untuk pasar Indonesia, mencakup solusi lampu LED dan sistem pencahayaan proyek.
+                </p>
+              </div>
+            </ScrollReveal>
+          </div>
+
+          {/* Keunggulan Kami (Values) */}
+          <div className="values-container">
+            <h3 className="values-title-small">Keunggulan & Nilai Utama Kami</h3>
+            <div className="values-grid">
+              <ScrollReveal animation="zoom-in" delay={100} duration={600}>
+                <div className="value-card">
+                  <div className="value-icon-box"><i className="ri-award-line"></i></div>
+                  <h4 className="value-title">Produk Berkualitas</h4>
+                  <p className="value-desc">Produk original dari merek terpercaya dengan standar internasional ketat.</p>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal animation="zoom-in" delay={200} duration={600}>
+                <div className="value-card">
+                  <div className="value-icon-box"><i className="ri-price-tag-line"></i></div>
+                  <h4 className="value-title">Harga Kompetitif</h4>
+                  <p className="value-desc">Harga bersaing dengan nilai terbaik dan rantai pasok langsung dari pabrikan.</p>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal animation="zoom-in" delay={300} duration={600}>
+                <div className="value-card">
+                  <div className="value-icon-box"><i className="ri-customer-service-line"></i></div>
+                  <h4 className="value-title">Layanan Profesional</h4>
+                  <p className="value-desc">Tim berpengalaman siap memberikan layanan cepat, ramah, dan purna jual resmi.</p>
+                </div>
+              </ScrollReveal>
+
+              <ScrollReveal animation="zoom-in" delay={400} duration={600}>
+                <div className="value-card">
+                  <div className="value-icon-box"><i className="ri-truck-line"></i></div>
+                  <h4 className="value-title">Pengiriman Luas</h4>
+                  <p className="value-desc">Distribusi ke seluruh wilayah Indonesia didukung jaringan logistik yang solid.</p>
+                </div>
+              </ScrollReveal>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Brand Carousel Partner */}
+      <section className="brand-carousel-container">
+        <h4 className="brand-carousel-title">Authorized Distributor & Brand Partners</h4>
+        <div className="brand-marquee-wrapper">
+          <div className="brand-marquee">
+            <span className="brand-logo-badge brand-osram">OSRAM</span>
+            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
+            <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
+            <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
+            <span className="brand-logo-badge brand-osram">OSRAM</span>
+            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
+            <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
+            <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
+          </div>
+          <div className="brand-marquee" aria-hidden="true">
+            <span className="brand-logo-badge brand-osram">OSRAM</span>
+            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
+            <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
+            <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
+            <span className="brand-logo-badge brand-osram">OSRAM</span>
+            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
+            <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
+            <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
+          </div>
+        </div>
+      </section>
+
       {/* Product Categories Section */}
       <section className="categories-section">
         <div className="container">
