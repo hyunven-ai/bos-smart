@@ -383,7 +383,7 @@ export default function AdminPanel() {
         <section className="login-container" style={{ margin: 0, display: 'block' }}>
           <div style={{ textAlign: 'center', marginBottom: '30px' }}>
             <img 
-              src="https://res.cloudinary.com/dzojrrwtr/image/upload/v1779721354/bos-smart-2_kpycfu.webp" 
+              src="https://res.cloudinary.com/dzojrrwtr/image/upload/v1784899054/LOGO2_kd3phw.webp" 
               alt="BOS Smart Logo" 
               style={{ height: '48px', width: 'auto', display: 'block', margin: '0 auto 16px', objectFit: 'contain' }}
             />
@@ -452,7 +452,7 @@ export default function AdminPanel() {
         <aside className="sidebar">
           <Link href="/" className="logo-wrapper">
             <img 
-              src="https://res.cloudinary.com/dzojrrwtr/image/upload/v1779721354/bos-smart-2_kpycfu.webp" 
+              src="https://res.cloudinary.com/dzojrrwtr/image/upload/v1784899054/LOGO2_kd3phw.webp" 
               alt="BOS Smart Logo" 
               style={{ height: '32px', width: 'auto', display: 'block', objectFit: 'contain', filter: 'brightness(0) invert(1)' }}
             />

@@ -8,7 +8,7 @@ export const metadata = {
   description: 'Solusi perangkat Smart Home, Kitchen & Living modern, dan pasokan Electrical Supply premium dari PT Berkat Optimal Semesta (BOS SMART).',
   keywords: 'smart home, kitchen living, electrical supply, stabilizer, tuya, smart socket, cikarang, bekasi, pt berkat optimal semesta',
   icons: {
-    icon: '/favicon.ico',
+    icon: 'https://res.cloudinary.com/dzojrrwtr/image/upload/v1784899130/favicon_dsvhsa.png',
   }
 };
 

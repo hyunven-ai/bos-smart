@@ -71,7 +71,7 @@ export default function Footer() {
           <div className="footer-col-about">
             <Link href="/" className="logo-wrapper" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
               <img
-                src="/assets/bos-smart.webp"
+                src="https://res.cloudinary.com/dzojrrwtr/image/upload/v1784899054/LOGO2_kd3phw.webp"
                 alt="BOS Smart Logo"
                 style={{ height: '40px', width: 'auto', display: 'block', objectFit: 'contain' }}
               />

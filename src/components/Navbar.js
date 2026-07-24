@@ -63,16 +63,25 @@ export default function Navbar() {
   return (
     <header className={`header ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        <Link href="/" className="logo-wrapper" onClick={closeMenu} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <img
-            src="https://res.cloudinary.com/dzojrrwtr/image/upload/v1779721354/bos-smart-2_kpycfu.webp"
-            alt="BOS Smart Logo"
-            style={{ height: '54px', width: 'auto', display: 'block', objectFit: 'contain' }}
-          />
-          <div className="logo-divider" style={{ height: '30px', width: '1.5px', backgroundColor: 'var(--primary-navy)', opacity: 0.15 }}></div>
-          <div className="logo-text-pt" style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.1', fontFamily: 'var(--font-headings)' }}>
-            <span style={{ fontSize: '0.72rem', fontWeight: '800', color: 'var(--primary-navy)', letterSpacing: '0.5px', textTransform: 'uppercase' }}>PT BERKAT</span>
-            <span style={{ fontSize: '0.72rem', fontWeight: '800', color: 'var(--primary-navy)', letterSpacing: '0.5px', textTransform: 'uppercase' }}>OPTIMAL SEMESTA</span>
+        <Link href="/" className="logo-wrapper" onClick={closeMenu} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <img
+              src="https://res.cloudinary.com/dzojrrwtr/image/upload/v1784899054/LOGO2_kd3phw.webp"
+              alt="BOS Smart Logo"
+              style={{ height: '42px', width: 'auto', display: 'block', objectFit: 'contain' }}
+            />
+            <div className="logo-divider" style={{ height: '24px', width: '1.5px', backgroundColor: 'var(--primary-navy)', opacity: 0.15 }}></div>
+            <div className="logo-text-pt" style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.1', fontFamily: 'var(--font-headings)' }}>
+              <span style={{ fontSize: '0.72rem', fontWeight: '800', color: 'var(--primary-navy)', letterSpacing: '0.5px', textTransform: 'uppercase' }}>PT BERKAT</span>
+              <span style={{ fontSize: '0.72rem', fontWeight: '800', color: 'var(--primary-navy)', letterSpacing: '0.5px', textTransform: 'uppercase' }}>OPTIMAL SEMESTA</span>
+            </div>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', width: '100%', padding: '0 2px' }}>
+            <div style={{ height: '1.5px', flexGrow: 1, backgroundColor: '#c5a880' }}></div>
+            <span style={{ fontSize: '0.52rem', fontWeight: '800', color: 'var(--primary-navy)', letterSpacing: '1px', textTransform: 'uppercase', whiteSpace: 'nowrap', display: 'flex', alignItems: 'center', gap: '4px' }}>
+              INNOVATE <span style={{ color: '#c5a880', fontSize: '0.6rem' }}>•</span> OPTIMIZE <span style={{ color: '#c5a880', fontSize: '0.6rem' }}>•</span> GROW TOGETHER
+            </span>
+            <div style={{ height: '1.5px', flexGrow: 1, backgroundColor: '#c5a880' }}></div>
           </div>
         </Link>
 
