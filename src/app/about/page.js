@@ -147,14 +147,13 @@ export default function About() {
 
           <div style={{ borderTop: '1px solid var(--light-gray)', paddingTop: '64px' }}>
             <h3 style={{ fontSize: '1.6rem', color: 'var(--primary-navy)', textAlign: 'center', marginBottom: '32px' }}>Authorized Distributor & Partner Resmi</h3>
-            <div className="responsive-grid-4" style={{ gap: '20px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px', background: 'var(--off-white)', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.03)' }}>
-                <span className="brand-logo-badge brand-osram" style={{ width: '100%', textAlign: 'center' }}>OSRAM</span>
-                <span style={{ fontSize: '0.75rem', color: 'var(--medium-gray)', marginTop: '8px' }}>Authorized Distributor</span>
-              </div>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px', background: 'var(--off-white)', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.03)' }}>
-                <span className="brand-logo-badge brand-ledvance" style={{ width: '100%', textAlign: 'center' }}>LEDVANCE</span>
-                <span style={{ fontSize: '0.75rem', color: 'var(--medium-gray)', marginTop: '8px' }}>Official Partner</span>
+            <div className="responsive-grid-3" style={{ gap: '20px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px', background: 'var(--off-white)', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.03)', gap: '12px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px', width: '100%' }}>
+                  <span className="brand-logo-badge brand-ledvance" style={{ width: '100%', textAlign: 'center' }}>LEDVANCE</span>
+                  <span className="brand-logo-badge brand-osram" style={{ width: '100%', textAlign: 'center' }}>OSRAM</span>
+                </div>
+                <span style={{ fontSize: '0.75rem', color: 'var(--medium-gray)', textAlign: 'center' }}>Official Partner & Authorized Distributor</span>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px', background: 'var(--off-white)', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.03)' }}>
                 <span className="brand-logo-badge brand-matsumega" style={{ width: '100%', textAlign: 'center' }}>MATSUMEGA</span>

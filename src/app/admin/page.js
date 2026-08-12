@@ -25,6 +25,8 @@ export default function AdminPanel() {
   const [showProductModal, setShowProductModal] = useState(false);
   const [showCategoryModal, setShowCategoryModal] = useState(false);
   const [toast, setToast] = useState({ show: false, message: '', type: 'success' });
+  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [currentPage, setCurrentPage] = useState(1);
 
   // D. FORM INPUT BINDINGS
   // Product Form
@@ -376,6 +378,12 @@ export default function AdminPanel() {
     ? products 
     : products.filter(p => p.category === activeCategoryFilter);
 
+  const totalItems = filteredProductsAdmin.length;
+  const totalPages = Math.ceil(totalItems / itemsPerPage) || 1;
+  const activePage = currentPage > totalPages ? totalPages : currentPage;
+  const startIndex = (activePage - 1) * itemsPerPage;
+  const paginatedProducts = filteredProductsAdmin.slice(startIndex, startIndex + itemsPerPage);
+
   // ==================== RENDER A: LOGIN PAGE ====================
   if (!isLoggedIn) {
     return (
@@ -454,7 +462,7 @@ export default function AdminPanel() {
             <img 
               src="https://res.cloudinary.com/dzojrrwtr/image/upload/v1784899054/LOGO2_kd3phw.webp" 
               alt="BOS Smart Logo" 
-              style={{ height: '32px', width: 'auto', display: 'block', objectFit: 'contain', filter: 'brightness(0) invert(1)' }}
+              style={{ height: '32px', width: 'auto', display: 'block', objectFit: 'contain' }}
             />
           </Link>
           
@@ -661,25 +669,49 @@ export default function AdminPanel() {
               <div className="panel-card">
                 <h3 className="panel-title" style={{ marginBottom: '12px' }}>Daftar Produk Aktif</h3>
                 
-                {/* Admin category dynamic filter bar */}
-                <div style={{ display: 'flex', gap: '12px', marginBottom: '24px' }}>
-                  <button 
-                    onClick={() => setActiveCategoryFilter('all')}
-                    className={`filter-btn ${activeCategoryFilter === 'all' ? 'active' : ''}`}
-                    style={{ padding: '8px 16px', fontSize: '0.8rem' }}
-                  >
-                    Semua Kategori
-                  </button>
-                  {categories.map(cat => (
+                {/* Admin category dynamic filter bar & Items Per Page Selector */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px', flexWrap: 'wrap', gap: '16px' }}>
+                  <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                     <button 
-                      key={cat.id}
-                      onClick={() => setActiveCategoryFilter(cat.id)}
-                      className={`filter-btn ${activeCategoryFilter === cat.id ? 'active' : ''}`}
+                      onClick={() => { setActiveCategoryFilter('all'); setCurrentPage(1); }}
+                      className={`filter-btn ${activeCategoryFilter === 'all' ? 'active' : ''}`}
                       style={{ padding: '8px 16px', fontSize: '0.8rem' }}
                     >
-                      {cat.name}
+                      Semua Kategori
                     </button>
-                  ))}
+                    {categories.map(cat => (
+                      <button 
+                        key={cat.id}
+                        onClick={() => { setActiveCategoryFilter(cat.id); setCurrentPage(1); }}
+                        className={`filter-btn ${activeCategoryFilter === cat.id ? 'active' : ''}`}
+                        style={{ padding: '8px 16px', fontSize: '0.8rem' }}
+                      >
+                        {cat.name}
+                      </button>
+                    ))}
+                  </div>
+                  
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <span style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>Tampilkan:</span>
+                    <select 
+                      value={itemsPerPage} 
+                      onChange={(e) => { setItemsPerPage(Number(e.target.value)); setCurrentPage(1); }}
+                      style={{ 
+                        backgroundColor: 'var(--dark-navy)', 
+                        color: 'var(--pure-white)', 
+                        border: '1px solid var(--glass-border)', 
+                        borderRadius: '6px', 
+                        padding: '6px 12px', 
+                        fontSize: '0.8rem',
+                        outline: 'none',
+                        cursor: 'pointer'
+                      }}
+                    >
+                      <option value={10}>10 item</option>
+                      <option value={20}>20 item</option>
+                      <option value={50}>50 item</option>
+                    </select>
+                  </div>
                 </div>
 
                 <table className="admin-table">
@@ -693,14 +725,14 @@ export default function AdminPanel() {
                     </tr>
                   </thead>
                   <tbody>
-                    {filteredProductsAdmin.length === 0 ? (
+                    {paginatedProducts.length === 0 ? (
                       <tr>
                         <td colSpan="5" style={{ textAlign: 'center', padding: '40px', color: 'var(--medium-gray)' }}>
                           Belum ada produk untuk kategori ini.
                         </td>
                       </tr>
                     ) : (
-                      filteredProductsAdmin.map(p => (
+                      paginatedProducts.map(p => (
                         <tr key={p.id}>
                           <td style={{ padding: '10px 16px' }}>
                             <img src={p.image} alt={p.name} style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '8px', border: '1px solid var(--glass-border)' }} />
@@ -732,6 +764,50 @@ export default function AdminPanel() {
                     )}
                   </tbody>
                 </table>
+
+                {/* Pagination Controls */}
+                {totalItems > itemsPerPage && (
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '20px', paddingTop: '20px', borderTop: '1px solid var(--glass-border)' }}>
+                    <div style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>
+                      Menampilkan {startIndex + 1} - {Math.min(startIndex + itemsPerPage, totalItems)} dari {totalItems} produk
+                    </div>
+                    <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                      <button 
+                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} 
+                        disabled={activePage === 1}
+                        className="btn btn-outline"
+                        style={{ 
+                          padding: '6px 12px', 
+                          fontSize: '0.8rem', 
+                          borderColor: 'var(--glass-border)', 
+                          color: activePage === 1 ? 'var(--medium-gray)' : 'var(--pure-white)',
+                          opacity: activePage === 1 ? 0.5 : 1,
+                          cursor: activePage === 1 ? 'not-allowed' : 'pointer'
+                        }}
+                      >
+                        <i className="ri-arrow-left-s-line"></i> Sebelumnya
+                      </button>
+                      <span style={{ fontSize: '0.8rem', color: 'var(--pure-white)', padding: '0 8px' }}>
+                        Halaman {activePage} dari {totalPages}
+                      </span>
+                      <button 
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} 
+                        disabled={activePage === totalPages}
+                        className="btn btn-outline"
+                        style={{ 
+                          padding: '6px 12px', 
+                          fontSize: '0.8rem', 
+                          borderColor: 'var(--glass-border)', 
+                          color: activePage === totalPages ? 'var(--medium-gray)' : 'var(--pure-white)',
+                          opacity: activePage === totalPages ? 0.5 : 1,
+                          cursor: activePage === totalPages ? 'not-allowed' : 'pointer'
+                        }}
+                      >
+                        Selanjutnya <i className="ri-arrow-right-s-line"></i>
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}

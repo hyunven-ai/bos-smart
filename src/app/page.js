@@ -270,22 +270,30 @@ export default function Home() {
         <h4 className="brand-carousel-title">Authorized Distributor & Brand Partners</h4>
         <div className="brand-marquee-wrapper">
           <div className="brand-marquee">
-            <span className="brand-logo-badge brand-osram">OSRAM</span>
-            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
+            <span className="brand-logo-badge" style={{ display: 'inline-flex', flexDirection: 'column', gap: '4px', padding: '8px 24px', alignItems: 'center', height: 'auto' }}>
+              <span className="brand-ledvance" style={{ fontSize: '1rem', borderLeft: 'none', paddingLeft: 0 }}>LEDVANCE</span>
+              <span className="brand-osram" style={{ fontSize: '0.85rem' }}>OSRAM</span>
+            </span>
             <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
             <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
-            <span className="brand-logo-badge brand-osram">OSRAM</span>
-            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
+            <span className="brand-logo-badge" style={{ display: 'inline-flex', flexDirection: 'column', gap: '4px', padding: '8px 24px', alignItems: 'center', height: 'auto' }}>
+              <span className="brand-ledvance" style={{ fontSize: '1rem', borderLeft: 'none', paddingLeft: 0 }}>LEDVANCE</span>
+              <span className="brand-osram" style={{ fontSize: '0.85rem' }}>OSRAM</span>
+            </span>
             <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
             <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
           </div>
           <div className="brand-marquee" aria-hidden="true">
-            <span className="brand-logo-badge brand-osram">OSRAM</span>
-            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
+            <span className="brand-logo-badge" style={{ display: 'inline-flex', flexDirection: 'column', gap: '4px', padding: '8px 24px', alignItems: 'center', height: 'auto' }}>
+              <span className="brand-ledvance" style={{ fontSize: '1rem', borderLeft: 'none', paddingLeft: 0 }}>LEDVANCE</span>
+              <span className="brand-osram" style={{ fontSize: '0.85rem' }}>OSRAM</span>
+            </span>
             <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
             <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
-            <span className="brand-logo-badge brand-osram">OSRAM</span>
-            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
+            <span className="brand-logo-badge" style={{ display: 'inline-flex', flexDirection: 'column', gap: '4px', padding: '8px 24px', alignItems: 'center', height: 'auto' }}>
+              <span className="brand-ledvance" style={{ fontSize: '1rem', borderLeft: 'none', paddingLeft: 0 }}>LEDVANCE</span>
+              <span className="brand-osram" style={{ fontSize: '0.85rem' }}>OSRAM</span>
+            </span>
             <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
             <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
           </div>
