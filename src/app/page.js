@@ -326,7 +326,6 @@ export default function Home() {
         <div className="container">
           <ScrollReveal animation="fade-up" duration={800}>
             <div className="section-title-wrapper">
-              <span className="section-tag">PRODUK KAMI</span>
               <h2 className="section-title">Solusi Lengkap untuk Kebutuhan Anda</h2>
               <p className="section-subtitle">Berbagai pilihan produk pencahayaan profesional, fasad arsitektur, hingga stabilizer dan transformer untuk kebutuhan komersial dan proyek.</p>
             </div>
