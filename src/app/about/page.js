@@ -69,9 +69,9 @@ export default function About() {
               "Innovate • Optimize • Grow Together"
             </div>
             {/* CTA Button to download PDF Profile */}
-            <a 
-              href="/assets/BOS_Company_Profile.pdf" 
-              download 
+            <a
+              href="/assets/BOS_Company_Profile.pdf"
+              download
               className="btn btn-electric btn-shine"
               style={{ display: 'inline-flex', borderRadius: '6px', marginTop: '8px' }}
             >
@@ -80,10 +80,10 @@ export default function About() {
           </div>
           <div style={{ position: 'relative' }}>
             <div style={{ position: 'absolute', width: '100%', height: '100%', top: '15px', left: '15px', border: '2px solid var(--electric-blue)', borderRadius: '16px', zIndex: 1 }}></div>
-            <img 
-              src="/about_lighting.jpg" 
-              alt="Architectural & Façade Lighting Showcase" 
-              style={{ position: 'relative', zIndex: 2, borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
+            <img
+              src="/about_lighting.jpg"
+              alt="Architectural & Façade Lighting Showcase"
+              style={{ position: 'relative', zIndex: 2, borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
             />
           </div>
         </div>
@@ -129,7 +129,7 @@ export default function About() {
               {about.vision}
             </p>
           </div>
-          
+
           {/* Misi */}
           <div style={{ backgroundColor: 'var(--off-white)', padding: '48px', borderRadius: '16px', boxShadow: '0 4px 20px rgba(0,0,0,0.02)', border: '1px solid rgba(0,0,0,0.03)' }}>
             <div style={{ width: '50px', height: '50px', backgroundColor: 'rgba(0,82,204,0.08)', color: 'var(--electric-blue)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.5rem', marginBottom: '24px' }}>
