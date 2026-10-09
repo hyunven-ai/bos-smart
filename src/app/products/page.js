@@ -274,9 +274,9 @@ function ProductsContent() {
                     e.currentTarget.style.borderColor = 'rgba(0, 0, 0, 0.05)';
                   }}
                 >
-                  <div style={{ height: '200px', position: 'relative', overflow: 'hidden', backgroundColor: 'var(--primary-navy)' }}>
-                    <img src={p.image} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'var(--transition-normal)' }} />
-                    <span style={{ position: 'absolute', top: '12px', left: '12px', fontSize: '0.7rem', backgroundColor: 'var(--primary-navy)', color: 'var(--pure-white)', padding: '4px 10px', borderRadius: '12px', fontWeight: 700, fontFamily: 'var(--font-headings)' }}>
+                  <div style={{ height: '220px', position: 'relative', overflow: 'hidden', backgroundColor: '#F8FAFC', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '12px' }}>
+                    <img src={p.image} alt={p.name} style={{ width: '100%', height: '100%', objectFit: 'contain', transition: 'var(--transition-normal)' }} />
+                    <span style={{ position: 'absolute', top: '12px', left: '12px', fontSize: '0.7rem', backgroundColor: 'var(--primary-navy)', color: 'var(--pure-white)', padding: '4px 10px', borderRadius: '12px', fontWeight: 700, fontFamily: 'var(--font-headings)', zIndex: 2, boxShadow: '0 2px 6px rgba(0,0,0,0.1)' }}>
                       {getCategoryName(p.category)}
                     </span>
                   </div>

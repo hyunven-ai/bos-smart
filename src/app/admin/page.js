@@ -735,7 +735,7 @@ export default function AdminPanel() {
                       paginatedProducts.map(p => (
                         <tr key={p.id}>
                           <td style={{ padding: '10px 16px' }}>
-                            <img src={p.image} alt={p.name} style={{ width: '50px', height: '50px', objectFit: 'cover', borderRadius: '8px', border: '1px solid var(--glass-border)' }} />
+                            <img src={p.image} alt={p.name} style={{ width: '50px', height: '50px', objectFit: 'contain', backgroundColor: 'rgba(255,255,255,0.08)', borderRadius: '8px', border: '1px solid var(--glass-border)' }} />
                           </td>
                           <td>
                             <div style={{ fontWeight: 700, color: 'var(--pure-white)' }}>{p.name}</div>
@@ -1037,7 +1037,7 @@ export default function AdminPanel() {
                     <img 
                       src={crudProdImageUrl} 
                       alt="Preview" 
-                      style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                      style={{ width: '100%', height: '100%', objectFit: 'contain' }}
                       onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = 'https://via.placeholder.com/80?text=Error';

@@ -39,7 +39,7 @@ export default function ProductModal({ product, categoryName, whatsappNumber, on
           backgroundColor: 'var(--pure-white)',
           borderRadius: '18px',
           width: '100%',
-          maxWidth: '850px',
+          maxWidth: '750px',
           overflow: 'hidden',
           boxShadow: '0 25px 50px rgba(0,0,0,0.5)',
           position: 'relative',
@@ -80,13 +80,59 @@ export default function ProductModal({ product, categoryName, whatsappNumber, on
           <i className="ri-close-line"></i>
         </button>
 
-        {/* Kiri: Foto Gambar */}
+        {/* Atas: Foto Gambar */}
         <div className="responsive-modal-image">
-          <img src={product.image} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img 
+            src={product.image} 
+            alt={product.name} 
+            style={{ 
+              width: '100%', 
+              height: '100%', 
+              maxHeight: '340px', 
+              objectFit: 'contain' 
+            }} 
+          />
+          {product.image && (
+            <a 
+              href={product.image} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              title="Buka gambar ukuran penuh"
+              style={{
+                position: 'absolute',
+                bottom: '16px',
+                right: '16px',
+                backgroundColor: 'rgba(255, 255, 255, 0.92)',
+                backdropFilter: 'blur(4px)',
+                border: '1px solid var(--light-gray)',
+                borderRadius: '20px',
+                padding: '6px 14px',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                color: 'var(--primary-navy)',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '6px',
+                textDecoration: 'none',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
+                transition: 'var(--transition-fast)'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = 'var(--primary-navy)';
+                e.currentTarget.style.color = '#FFFFFF';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.92)';
+                e.currentTarget.style.color = 'var(--primary-navy)';
+              }}
+            >
+              <i className="ri-fullscreen-line"></i> Gambar Penuh
+            </a>
+          )}
         </div>
 
-        {/* Kanan: Konten Spesifikasi */}
-        <div style={{ padding: '40px', display: 'flex', flexDirection: 'column', overflowY: 'auto', maxHeight: '90vh' }}>
+        {/* Bawah: Konten Spesifikasi & Deskripsi */}
+        <div className="responsive-modal-content">
           <span 
             style={{
               fontSize: '0.75rem',
