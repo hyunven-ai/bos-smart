@@ -93,8 +93,12 @@ export default function About() {
       <section style={{ padding: '60px 0', backgroundColor: 'var(--off-white)', borderTop: '1px solid var(--light-gray)', borderBottom: '1px solid var(--light-gray)' }}>
         <div className="container">
           <div style={{ maxWidth: '840px', margin: '0 auto', backgroundColor: 'var(--pure-white)', borderRadius: '16px', padding: '36px 40px', border: '1px solid rgba(0, 82, 204, 0.1)', boxShadow: '0 8px 25px rgba(10,37,64,0.04)', display: 'flex', flexDirection: 'row', gap: '30px', alignItems: 'center', flexWrap: 'wrap' }}>
-            <div style={{ width: '76px', height: '76px', borderRadius: '50%', backgroundColor: 'rgba(0,82,204,0.08)', border: '2px solid var(--electric-blue)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--electric-blue)', fontSize: '2.2rem', flexShrink: 0 }}>
-              <i className="ri-user-star-line"></i>
+            <div style={{ width: '88px', height: '88px', borderRadius: '50%', overflow: 'hidden', border: '3px solid var(--electric-blue)', boxShadow: '0 4px 14px rgba(0, 82, 204, 0.2)', flexShrink: 0 }}>
+              <img
+                src="/direktor.jpg"
+                alt="George D. Sukiat (Danny Sukiat) - Managing Director"
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+              />
             </div>
             <div style={{ flex: '1 1 320px' }}>
               <span className="section-tag" style={{ textAlign: 'left', marginBottom: '6px', fontSize: '0.75rem' }}>LEADERSHIP</span>
