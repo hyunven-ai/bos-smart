@@ -78,12 +78,11 @@ export default function About() {
               <i className="ri-file-download-line" style={{ fontSize: '1.15rem' }}></i> Unduh Company Profile (PDF)
             </a>
           </div>
-          <div style={{ position: 'relative' }}>
-            <div style={{ position: 'absolute', width: '100%', height: '100%', top: '15px', left: '15px', border: '2px solid var(--electric-blue)', borderRadius: '16px', zIndex: 1 }}></div>
+          <div>
             <img
               src="/about_lighting.jpg"
               alt="Architectural & Façade Lighting Showcase"
-              style={{ position: 'relative', zIndex: 2, borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
+              style={{ borderRadius: '16px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)', width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
             />
           </div>
         </div>
@@ -95,7 +94,7 @@ export default function About() {
           <div className="leadership-card">
             <div className="leadership-avatar-box">
               <img
-                src="/assets/director.jpg"
+                src="/assets/George.jpg"
                 alt="George D. Sukiat (Danny Sukiat) - Managing Director"
                 className="leadership-avatar-img"
               />
@@ -182,11 +181,7 @@ export default function About() {
 
           <div style={{ borderTop: '1px solid var(--light-gray)', paddingTop: '64px' }}>
             <h3 style={{ fontSize: '1.6rem', color: 'var(--primary-navy)', textAlign: 'center', marginBottom: '32px' }}>Authorized Distributor & Partner Resmi</h3>
-            <div className="responsive-grid-3" style={{ gap: '20px' }}>
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px', background: 'var(--pure-white)', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.03)' }}>
-                <span className="brand-logo-badge brand-ledvance" style={{ width: '100%', textAlign: 'center' }}>LEDVANCE</span>
-                <span style={{ fontSize: '0.75rem', color: 'var(--medium-gray)', marginTop: '8px' }}>Official Partner & Lighting</span>
-              </div>
+            <div className="responsive-grid-2" style={{ gap: '24px', maxWidth: '720px', margin: '0 auto' }}>
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '24px', background: 'var(--pure-white)', borderRadius: '8px', border: '1px solid rgba(0,0,0,0.03)' }}>
                 <span className="brand-logo-badge brand-matsumega" style={{ width: '100%', textAlign: 'center' }}>MATSUMEGA</span>
                 <span style={{ fontSize: '0.75rem', color: 'var(--medium-gray)', marginTop: '8px' }}>Power Solutions</span>

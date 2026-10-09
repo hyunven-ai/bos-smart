@@ -2365,10 +2365,6 @@ img {
 }
 
 /* Specific Brand Styling to look like real logos */
-.brand-ledvance {
-  color: #1A1A1A;
-  border-left: 4px solid var(--electric-blue);
-}
 
 .brand-matsumega {
   color: #D32F2F;

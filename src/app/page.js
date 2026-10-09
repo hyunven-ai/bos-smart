@@ -303,18 +303,18 @@ export default function Home() {
         <h4 className="brand-carousel-title">Authorized Distributor & Brand Partners</h4>
         <div className="brand-marquee-wrapper">
           <div className="brand-marquee">
-            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
             <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
             <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
-            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
+            <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
+            <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
             <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
             <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
           </div>
           <div className="brand-marquee" aria-hidden="true">
-            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
             <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
             <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
-            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
+            <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
+            <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
             <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
             <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
           </div>
