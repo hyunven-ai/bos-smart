@@ -5,9 +5,9 @@ import { BOS_DB } from '@/lib/db';
 
 export default function Contact() {
   const [settings, setSettings] = useState({
-    whatsapp: '628123456789',
+    whatsapp: '6287888638008',
     email: 'Info@bos-smart.com',
-    address: 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530',
+    address: 'Jl.R E Martadinata No 56 komplek Primokom Nusa Lestari blok D1 Ancol, Jakarta Utara',
     facebook: '',
     instagram: '',
     threads: '',
@@ -290,7 +290,7 @@ export default function Contact() {
                   <i className="ri-map-pin-line"></i>
                 </div>
                 <div>
-                  <h5 style={{ color: 'var(--pure-white)', fontWeight: 700, marginBottom: '4px', fontSize: '0.9rem' }}>Gudang & Kantor Operasional</h5>
+                  <h5 style={{ color: 'var(--pure-white)', fontWeight: 700, marginBottom: '4px', fontSize: '0.9rem' }}>Kantor Operasional</h5>
                   <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '0.8rem', lineHeight: 1.5 }}>{settings.address}</p>
                 </div>
               </div>
@@ -341,7 +341,7 @@ export default function Contact() {
           {/* Google Maps Lokasi Kantor */}
           <div className="section-title-wrapper" style={{ marginBottom: '30px' }}>
             <span className="section-tag">LOKASI KAMI</span>
-            <h2 className="section-title">Lokasi Gudang & Kantor Cikarang</h2>
+            <h2 className="section-title">Lokasi Kantor</h2>
           </div>
           <div style={{ height: '450px', borderRadius: '16px', overflow: 'hidden', border: '1px solid var(--light-gray)', boxShadow: '0 4px 20px rgba(0,0,0,0.03)' }}>
             <iframe

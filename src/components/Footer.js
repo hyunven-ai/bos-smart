@@ -9,9 +9,9 @@ export default function Footer() {
   const pathname = usePathname();
   const [year, setYear] = useState(2026);
   const [settings, setSettings] = useState({
-    whatsapp: '628123456789',
-    email: 'Info@bos-smart.comm',
-    address: 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530',
+    whatsapp: '6287888638008',
+    email: 'Info@bos-smart.com',
+    address: 'Jl.R E Martadinata No 56 komplek Primokom Nusa Lestari blok D1 Ancol, Jakarta Utara',
     facebook: '',
     instagram: '',
     threads: '',
@@ -26,9 +26,9 @@ export default function Footer() {
         const currentSettings = await BOS_DB.getSettings();
         if (currentSettings) {
           setSettings({
-            whatsapp: currentSettings.whatsapp || '628123456789',
+            whatsapp: currentSettings.whatsapp || '6287888638008',
             email: currentSettings.email || 'Info@bos-smart.com',
-            address: currentSettings.address || 'Kawasan Industri Jababeka, Cikarang, Bekasi, Jawa Barat 17530',
+            address: currentSettings.address || 'Jl.R E Martadinata No 56 komplek Primokom Nusa Lestari blok D1 Ancol, Jakarta Utara',
             facebook: currentSettings.facebook || '',
             instagram: currentSettings.instagram || '',
             threads: currentSettings.threads || '',
@@ -82,7 +82,7 @@ export default function Footer() {
               </div>
             </Link>
             <p style={{ marginTop: '15px' }}>
-              Penyedia solusi produk pintar (BOS SMART), peralatan rumah tangga modern (BOS HOME & LIVING), serta sistem daya listrik & industri (Stabilizer & Transformer Solutions) premium.
+              Penyedia solusi Lighting & Power Solutions terpercaya: Professional Lighting, Architectural & Façade Lighting, serta Stabilizer & Transformer Solutions untuk kebutuhan komersial, industri, dan proyek.
             </p>
             <div className="footer-socials">
               {settings.facebook && <a href={settings.facebook} target="_blank" rel="noopener noreferrer" className="footer-social-icon"><i className="ri-facebook-fill"></i></a>}
@@ -108,8 +108,8 @@ export default function Footer() {
           <div>
             <h4 className="footer-col-title">Kategori</h4>
             <ul className="footer-links">
-              <li><Link href="/products?category=kitchen-living" className="footer-link">BOS HOME & LIVING</Link></li>
-              <li><Link href="/products?category=smart-home" className="footer-link">BOS SMART</Link></li>
+              <li><Link href="/products?category=professional-lighting" className="footer-link">Professional Lighting</Link></li>
+              <li><Link href="/products?category=architectural-facade" className="footer-link">Architectural & Façade Lighting</Link></li>
               <li><Link href="/products?category=electrical-supply" className="footer-link">Stabilizer & Transformer Solutions</Link></li>
             </ul>
           </div>

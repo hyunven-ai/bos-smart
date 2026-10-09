@@ -8,8 +8,12 @@ import ProductModal from '@/components/ProductModal';
 function ProductsContent() {
   const searchParams = useSearchParams();
   const [products, setProducts] = useState([]);
-  const [categories, setCategories] = useState([]);
-  const [whatsapp, setWhatsapp] = useState('628123456789');
+  const [categories, setCategories] = useState([
+    { id: 'professional-lighting', name: 'PROFESSIONAL LIGHTING', desc: 'Reliable Lighting Solutions for Commercial & Project Applications' },
+    { id: 'architectural-facade', name: 'ARCHITECTURAL & FAÇADE LIGHTING', desc: 'Lighting Solutions for Architecture, Façade & Custom Projects' },
+    { id: 'electrical-supply', name: 'STABILIZER & TRANSFORMER SOLUTIONS', desc: 'Reliable Power Solutions for Commercial & Industrial Applications' }
+  ]);
+  const [whatsapp, setWhatsapp] = useState('6287888638008');
 
   const [activeFilter, setActiveFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
@@ -24,7 +28,7 @@ function ProductsContent() {
         const settings = await BOS_DB.getSettings();
 
         if (dbProducts) setProducts(dbProducts);
-        if (dbCategories) setCategories(dbCategories);
+        if (dbCategories && dbCategories.length > 0) setCategories(dbCategories);
         if (settings && settings.whatsapp) setWhatsapp(settings.whatsapp);
       } catch (err) {
         console.error('Failed to load data:', err);
@@ -39,6 +43,8 @@ function ProductsContent() {
     const catParam = searchParams.get('category');
     if (catParam) {
       setActiveFilter(catParam);
+    } else {
+      setActiveFilter('all');
     }
   }, [searchParams]);
 
@@ -65,8 +71,8 @@ function ProductsContent() {
       <section style={{ backgroundColor: 'var(--secondary-navy)', color: 'var(--pure-white)', padding: '120px 0 60px', textAlign: 'center', borderBottom: '1px solid rgba(255,255,255,0.05)', backgroundImage: 'radial-gradient(circle at 50% 120%, rgba(0, 210, 255, 0.1) 0%, transparent 60%)' }}>
         <div className="container" style={{ position: 'relative', zIndex: 2 }}>
           <span className="section-tag">KATALOG PRODUK</span>
-          <h1 style={{ fontSize: '2.75rem', color: 'var(--pure-white)', marginTop: '8px' }}>Koleksi Produk Terbaik</h1>
-          <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '600px', margin: '12px auto 0', fontSize: '1.05rem' }}>Temukan solusi perangkat pintar kelistrikan dan peralatan rumah tangga bersertifikasi.</p>
+          <h1 style={{ fontSize: '2.75rem', color: 'var(--pure-white)', marginTop: '8px' }}>Koleksi Produk & Solusi Proyek</h1>
+          <p style={{ color: 'rgba(255,255,255,0.6)', maxWidth: '600px', margin: '12px auto 0', fontSize: '1.05rem' }}>Solusi pencahayaan profesional, architectural & façade lighting, serta stabilizer & transformer bersertifikasi.</p>
         </div>
       </section>
 
@@ -208,7 +214,7 @@ function ProductsContent() {
               lineHeight: 1.5
             }}>
               {activeFilter === 'all'
-                ? 'Menampilkan seluruh koleksi produk pintar, kelistrikan, dan peralatan rumah tangga terbaik dari BOS SMART.'
+                ? 'Menampilkan seluruh koleksi Professional Lighting, Architectural & Façade Lighting, serta Stabilizer & Transformer Solutions dari BOS SMART.'
                 : (categories.find(c => c.id === activeFilter)?.desc || '')}
             </p>
           </div>

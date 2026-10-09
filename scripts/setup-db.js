@@ -94,12 +94,12 @@ async function setupDatabase() {
         INSERT INTO settings (id, whatsapp, email, address, seo_title, seo_description, seo_keywords, admin_username, admin_password)
         VALUES (
           'global',
-          '6281217309510',
+          '6287888638008',
           'Info@bos-smart.com',
-          'Ruko Villa Mutiara Cikarang 2 Blok F1 No. 05, Cikarang Utara, Bekasi, Jawa Barat 17530',
-          'BOS SMART - Smart Living Starts Here',
-          'Solusi perangkat Smart Home, Kitchen & Home Living modern, dan pasokan Electrical & Technical Supply premium dari PT Berkat Optimal Semesta (BOS SMART).',
-          'smart home, kitchen living, electrical supply, stabilizer, tuya, smart socket, cikarang, bekasi, pt berkat optimal semesta, bos smart',
+          'Jl.R E Martadinata No 56 komplek Primokom Nusa Lestari blok D1 Ancol, Jakarta Utara',
+          'BOS SMART | Lighting & Power Solutions',
+          'Solusi pencahayaan dan sistem daya untuk kebutuhan komersial, industri, dan proyek. Professional Lighting, Architectural & Façade Lighting, serta Stabilizer & Transformer dari PT Berkat Optimal Semesta (BOS SMART).',
+          'lighting solutions, power solutions, professional lighting, architectural lighting, facade lighting, stabilizer, transformer, pt berkat optimal semesta, bos smart',
           'admin',
           'admin123'
         )
@@ -109,18 +109,18 @@ async function setupDatabase() {
     const countPages = await sql`SELECT COUNT(*) as count FROM pages`;
     if (countPages[0].count == 0) {
       const whyPillars = JSON.stringify([
-        { id: 'sourcing', title: 'Direct Sourcing', desc: 'Akses langsung ke pabrik-pabrik manufaktur terpercaya untuk efisiensi biaya luar biasa.' },
-        { id: 'qc', title: 'Quality Assurance', desc: 'Setiap unit produk melewati pemeriksaan kualitas berlapis sebelum dikirim ke pelanggan.' },
-        { id: 'price', title: 'Competitive Price', desc: 'Harga tangan pertama tanpa perantara tambahan, memberikan margin keuntungan terbaik untuk mitra kami.' },
-        { id: 'support', title: 'Professional Support', desc: 'Dukungan teknis, konsultasi produk, dan garansi resmi oleh tim ahli kami.' },
-        { id: 'complete', title: 'Complete Products', desc: 'Rentang katalog produk yang luas dan terus berkembang sesuai kebutuhan teknologi terupdate.' },
-        { id: 'partnership', title: 'Reliable Partnership', desc: 'Komitmen untuk menjadi mitra logistik dan pasokan terpercaya yang mendukung kelancaran bisnis Anda.' }
+        { id: 'lighting', title: 'Professional Lighting', desc: 'Sistem pencahayaan teruji untuk kebutuhan komersial, kantor, dan proyek dengan efisiensi energi tinggi.' },
+        { id: 'facade', title: 'Architectural & Façade', desc: 'Solusi visual pencahayaan fasad dan arsitektur gedung yang estetis, andal, dan berstandar internasional.' },
+        { id: 'power', title: 'Power Solutions', desc: 'Distribusi stabilizer dan transformer tangguh untuk perlindungan tegangan listrik industri dan proyek.' },
+        { id: 'project', title: 'Project Solutions', desc: 'Konsultasi spesifikasi teknik, integrasi sistem, dan penyesuaian khusus (custom) sesuai kebutuhan proyek.' },
+        { id: 'qc', title: 'Quality Assurance', desc: 'Setiap unit produk melewati pemeriksaan mutu berlapis untuk memastikan durabilitas dan keselamatan kerja.' },
+        { id: 'support', title: 'After-Sales Support', desc: 'Dukungan purna jual responsif, ketersediaan suku cadang, dan garansi resmi oleh tim teknis kami.' }
       ]);
       const aboutMission = JSON.stringify([
-        'Menyediakan produk berkualitas tinggi dengan teknologi terdepan langsung dari produsen global terpercaya.',
-        'Menerapkan sistem kontrol kualitas (QC) yang ketat untuk menjamin kepuasan dan keselamatan pengguna.',
-        'Membangun kemitraan jangka panjang yang saling menguntungkan dengan pelanggan retail maupun korporat.',
-        'Memberikan layanan purna jual yang responsif, profesional, dan berorientasi pada solusi.'
+        'Menghadirkan sistem pencahayaan profesional dan architectural & façade lighting terdepan untuk proyek arsitektur, komersial, dan industri.',
+        'Menyediakan solusi proteksi daya stabilizer dan transformer andal guna menjaga kontinuitas dan kestabilan sistem operasional listrik.',
+        'Menjalin kemitraan strategis dengan pabrikan terpercaya lokal dan global untuk menjamin kualitas standar internasional.',
+        'Memberikan layanan konsultasi spesifikasi proyek dan after-sales support teknis yang profesional dan berkesinambungan.'
       ]);
 
       await sql`
@@ -130,17 +130,17 @@ async function setupDatabase() {
           why_title, why_description, why_pillars
         ) VALUES (
           'global',
-          'Smart Living Starts Here',
-          'Home & Smart Products • Electrical & Technical Supply',
-          'Solusi terintegrasi untuk kebutuhan rumah pintar modern dan pasokan kelistrikan berkualitas tinggi. Dari pabrik lokal dan sourching China dengan Quality Control ketat dan After Sales Support professional.',
+          'LIGHTING & POWER SOLUTIONS',
+          'Professional Lighting • Architectural & Façade Lighting • Stabilizer & Transformer',
+          'Solusi pencahayaan dan sistem daya untuk kebutuhan komersial, industri, dan proyek. Didukung produk berkualitas, solusi yang disesuaikan dengan kebutuhan proyek, serta after-sales support yang profesional.',
           'Lihat Produk',
           'Hubungi Kami',
           'Profil PT Berkat Optimal Semesta (BOS SMART)',
-          'PT Berkat Optimal Semesta (BOS SMART) adalah perusahaan terkemuka yang bergerak di bidang penyediaan solusi hunian pintar (Smart Home), peralatan rumah tangga & dapur modern (Kitchen & Living), serta pasokan kelistrikan industri dan komersial (Electrical Supply). Kami bermitra langsung dengan produsen global terbaik di China untuk menghadirkan teknologi pintar yang andal, efisien, dan terjangkau bagi pasar Indonesia.',
-          'Menjadi pemimpin pasar nasional dalam penyediaan solusi smart living dan pasokan kelistrikan terintegrasi melalui inovasi, keandalan, dan pelayanan purna jual terbaik.',
+          'PT Berkat Optimal Semesta (BOS SMART) adalah perusahaan yang bergerak di bidang Lighting & Power Solutions, dengan fokus pada solusi pencahayaan profesional, Architectural & Façade Lighting, serta Stabilizer & Transformer untuk kebutuhan komersial, industri, dan proyek.\n\nKami bekerja sama dengan mitra manufaktur terpercaya, baik lokal maupun internasional, untuk menghadirkan solusi yang andal, efisien, dan sesuai dengan kebutuhan setiap proyek di Indonesia.',
+          'Menjadi mitra terdepan dan terpercaya di Indonesia dalam penyediaan solusi pencahayaan arsitektural dan sistem manajemen daya terintegrasi melalui produk berkualitas, inovasi, dan layanan purna jual terbaik.',
           ${aboutMission},
           'Mengapa Memilih BOS SMART?',
-          'Kami menawarkan solusi menyeluruh dari hulu ke hilir untuk memastikan Anda mendapatkan produk berkualitas tinggi dengan harga pabrik yang kompetitif dan dukungan purna jual jangka panjang.',
+          'Kami menawarkan solusi menyeluruh dari konsultasi teknis, pasokan produk berkualitas standar industri, hingga dukungan purna jual jangka panjang untuk proyek Anda.',
           ${whyPillars}
         )
       `;
@@ -150,20 +150,21 @@ async function setupDatabase() {
     if (countCategories[0].count == 0) {
       await sql`
         INSERT INTO categories (id, name, description, sort_order) VALUES
-        ('kitchen-living', 'BOS HOME & LIVING', 'Practical Living Everyday', 1),
-        ('smart-home', 'BOS SMART', 'Smart Living Made Simple', 2),
-        ('electrical-supply', 'Stabilizer & Transformer Solutions', 'Reliable Power Solutions', 3)
+        ('professional-lighting', 'PROFESSIONAL LIGHTING', 'Reliable Lighting Solutions for Commercial & Project Applications', 1),
+        ('architectural-facade', 'ARCHITECTURAL & FAÇADE LIGHTING', 'Lighting Solutions for Architecture, Façade & Custom Projects', 2),
+        ('electrical-supply', 'STABILIZER & TRANSFORMER SOLUTIONS', 'Reliable Power Solutions for Commercial & Industrial Applications', 3)
       `;
     }
 
     const countProducts = await sql`SELECT COUNT(*) as count FROM products`;
     if (countProducts[0].count == 0) {
-      // Data produk default (kita tambahkan beberapa)
       await sql`
         INSERT INTO products (id, name, category_id, image, description, specs, status) VALUES
-        ('p-1', 'BOS Smart WiFi LED Bulb 9W RGB+CCT', 'smart-home', 'https://images.unsplash.com/photo-1550537687-c91072c4792d?q=80&w=600&auto=format&fit=crop', 'Lampu pintar hemat energi dengan konektivitas WiFi langsung (tanpa hub). Dapat dikontrol melalui aplikasi smartphone TUYA / Smart Life atau menggunakan perintah suara Alexa & Google Assistant. Menampilkan 16 juta warna (RGB) dan tingkat temperatur warna hangat ke dingin (2700K - 6500K).', 'Daya: 9 Watt\nKecerahan: 810 Lumens\nKonektivitas: WiFi 2.4 GHz\nKecocokan Aplikasi: TUYA / Smart Life / Alexa / Google Assistant\nUmur Lampu: hingga 25.000 Jam\nGaransi: 1 Tahun Ganti Baru', 'show'),
-        ('p-4', 'BOS Premium Intelligent Air Fryer 4.5L', 'kitchen-living', 'https://images.unsplash.com/photo-1621972750749-0fbb1abb7736?q=80&w=600&auto=format&fit=crop', 'Alat penggoreng udara pintar berkapasitas besar 4.5 Liter untuk memasak sehat tanpa minyak. Memiliki panel kontrol sentuh digital LED dengan 8 menu resep bawaan otomatis. Menggunakan teknologi sirkulasi udara panas cepat 360 derajat untuk menghasilkan makanan yang renyah di luar dan lembut di dalam.', 'Kapasitas: 4.5 Liter\nDaya Listrik: 1200 Watt\nTegangan: 220V - 50Hz\nRentang Suhu: 80°C - 200°C\nRentang Waktu: 0 - 60 Menit\nLapisan Wadah: Teflon Food Grade Non-Stick (Anti Lengket)', 'show'),
-        ('p-6', 'BOS Industrial Servo-Motor Stabilizer 10kVA', 'electrical-supply', 'https://images.unsplash.com/photo-1618042164219-62c820f10723?q=80&w=600&auto=format&fit=crop', 'Stabilizer tegangan tipe servo motor berkapasitas tinggi 10kVA (10.000 VA). Dirancang khusus untuk menstabilkan fluktuasi voltase listrik di kawasan industri, kantor, atau rumah dengan peralatan sensitif tinggi. Menghindari kerusakan akibat lonjakan tegangan yang tidak stabil.', 'Kapasitas: 10 kVA (10.000 VA)\nTegangan Input: 140V - 250V AC\nTegangan Output: 220V (Akurasi ± 2%)\nSistem Kontrol: Servo Motor Drive\nProteksi: Over-Voltage, Under-Voltage, Over-Temp, Short-Circuit\nPendingin: Kipas otomatis berbasis sensor suhu', 'show')
+        ('prod-t8-lighting', 'BOS Professional T8 LED Batten & Tube', 'professional-lighting', 'https://images.unsplash.com/photo-1513506003901-1e6a229e2d15?q=80&w=800&auto=format&fit=crop', 'Lampu tabung T8 LED efisiensi tinggi untuk kebutuhan penerangan komersial, perkantoran, dan area industri.', 'Tipe: T8 LED Tube & Fixture\nDaya: 9W / 18W / 36W\nEfikasi: 120 lm/W\nCCT: 4000K / 6500K\nGaransi: 2 Tahun', 'show'),
+        ('prod-office-lighting', 'BOS Architectural Office Linear Lighting', 'professional-lighting', 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800&auto=format&fit=crop', 'Sistem pencahayaan linear gantung dan tempel untuk area kantor modern, ruang meeting, dan koridor komersial.', 'Tipe: Suspended / Surface Mount Linear Luminaire\nDaya: 36W / 48W\nPanjang: 1200mm / 1500mm\nUGR: < 19\nGaransi: 3 Tahun', 'show'),
+        ('prod-panel-light', 'BOS Commercial Ultra-Slim Panel Light', 'professional-lighting', 'https://images.unsplash.com/photo-1540932239986-30128078f3c5?q=80&w=800&auto=format&fit=crop', 'Lampu panel LED tipis untuk plafon akustik, gypsum, dan T-bar grid dengan pencahayaan merata bebas silau.', 'Ukuran: 600x600mm / 300x1200mm\nDaya: 36W / 40W\nCCT: 4000K / 6500K\nGaransi: 2 Tahun', 'show'),
+        ('prod-wall-washer', 'BOS High-Performance Outdoor Wall Washer', 'architectural-facade', 'https://images.unsplash.com/photo-1541888946425-d0fbb18086f7?q=80&w=800&auto=format&fit=crop', 'Lampu wall washer eksterior berkekuatan tinggi untuk penyinaran fasad gedung, dinding arsitektur, dan monumen.', 'Daya: 24W / 36W / 72W\nProteksi: IP66 Outdoor Waterproof\nCCT: 3000K / 4000K / DMX512 RGBW\nGaransi: 3 Tahun', 'show'),
+        ('prod-linear-lighting', 'BOS Architectural Exterior Linear Façade', 'architectural-facade', '/about_lighting.jpg', 'Profil pencahayaan linier tahan cuaca untuk membingkai kontur arsitektur dan aksen fasad modern.', 'Daya: 18W / Meter\nProteksi: IP67 Waterproof\nGaransi: 3 Tahun', 'show')
       `;
     }
 

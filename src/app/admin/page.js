@@ -1121,16 +1121,16 @@ export default function AdminPanel() {
               <div style={{ display: 'grid', gridTemplateColumns: '0.8fr 1.2fr', gap: '16px' }}>
                 <div className="admin-form-group">
                   <label className="admin-label" htmlFor="crud-cat-id">ID Kategori *</label>
-                  <input type="text" id="crud-cat-id" className="admin-input" placeholder="smart-home" value={crudCatId} onChange={(e) => setCrudCatId(e.target.value)} readonly={catIdReadOnly} required />
+                  <input type="text" id="crud-cat-id" className="admin-input" placeholder="professional-lighting" value={crudCatId} onChange={(e) => setCrudCatId(e.target.value)} readonly={catIdReadOnly} required />
                 </div>
                 <div className="admin-form-group">
                   <label className="admin-label" htmlFor="crud-cat-name">Nama Tampilan *</label>
-                  <input type="text" id="crud-cat-name" className="admin-input" placeholder="Smart Home" value={crudCatName} onChange={(e) => setCrudCatName(e.target.value)} required />
+                  <input type="text" id="crud-cat-name" className="admin-input" placeholder="Professional Lighting" value={crudCatName} onChange={(e) => setCrudCatName(e.target.value)} required />
                 </div>
               </div>
               <div className="admin-form-group">
                 <label className="admin-label" htmlFor="crud-cat-desc">Deskripsi Singkat *</label>
-                <input type="text" id="crud-cat-desc" className="admin-input" placeholder="Saklar pintar, CCTV, dll..." value={crudCatDesc} onChange={(e) => setCrudCatDesc(e.target.value)} required />
+                <input type="text" id="crud-cat-desc" className="admin-input" placeholder="Solusi pencahayaan komersial dan proyek..." value={crudCatDesc} onChange={(e) => setCrudCatDesc(e.target.value)} required />
               </div>
               <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '12px', marginTop: '20px' }}>
                 <button type="button" onClick={() => setShowCategoryModal(false)} className="btn btn-outline" style={{ borderColor: 'var(--glass-border)', color: 'var(--pure-white)' }}>Tutup</button>

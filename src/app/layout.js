@@ -4,9 +4,9 @@ import Footer from '@/components/Footer';
 import ScrollProgress from '@/components/ScrollProgress';
 
 export const metadata = {
-  title: 'BOS SMART - Smart Living Starts Here',
-  description: 'Solusi perangkat Smart Home, Kitchen & Living modern, dan pasokan Electrical Supply premium dari PT Berkat Optimal Semesta (BOS SMART).',
-  keywords: 'smart home, kitchen living, electrical supply, stabilizer, tuya, smart socket, cikarang, bekasi, pt berkat optimal semesta',
+  title: 'BOS SMART | Lighting & Power Solutions',
+  description: 'Solusi pencahayaan dan sistem daya untuk kebutuhan komersial, industri, dan proyek. Professional Lighting, Architectural & Façade Lighting, serta Stabilizer & Transformer dari PT Berkat Optimal Semesta (BOS SMART).',
+  keywords: 'lighting and power solutions, professional lighting, architectural lighting, facade lighting, stabilizer, transformer, pt berkat optimal semesta, bos smart',
   icons: {
     icon: 'https://res.cloudinary.com/dzojrrwtr/image/upload/v1784899130/favicon_dsvhsa.png',
   }

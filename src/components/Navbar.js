@@ -9,7 +9,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuActive, setMenuActive] = useState(false);
-  const [whatsapp, setWhatsapp] = useState('628123456789');
+  const [whatsapp, setWhatsapp] = useState('6287888638008');
 
   // SSR-safe load settings
   useEffect(() => {
@@ -119,7 +119,7 @@ export default function Navbar() {
         {/* CTA WhatsApp Button Header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           <a
-            href={`https://wa.me/${whatsapp}?text=Halo%20BOS%20Tech,%20saya%20tertarik%20dengan%20produk%20Anda.`}
+            href={`https://wa.me/${whatsapp}?text=Halo%20BOS%20SMART,%20saya%20tertarik%20dengan%20solusi%20Lighting%20%26%20Power%20Solutions.`}
             target="_blank"
             rel="noopener noreferrer"
             className="btn btn-electric btn-shine header-wa-btn"

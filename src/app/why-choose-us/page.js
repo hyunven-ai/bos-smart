@@ -11,10 +11,17 @@ export default function WhyChooseUs() {
   });
 
   useEffect(() => {
-    const pages = BOS_DB.getPages();
-    if (pages && pages.whyChooseUs) {
-      setContent(pages.whyChooseUs);
-    }
+    const loadData = async () => {
+      try {
+        const pages = await BOS_DB.getPages();
+        if (pages && pages.whyChooseUs) {
+          setContent(pages.whyChooseUs);
+        }
+      } catch (err) {
+        console.error('Failed to load whyChooseUs data:', err);
+      }
+    };
+    loadData();
   }, []);
 
   const icons = {
@@ -55,39 +62,39 @@ export default function WhyChooseUs() {
         </div>
       </section>
 
-      {/* Sourcing and QC Process Flowchart */}
+      {/* Quality & Project Support Flowchart */}
       <section style={{ padding: '80px 0', backgroundColor: 'var(--off-white)', borderTop: '1px solid var(--light-gray)' }}>
         <div className="container">
           <div className="section-title-wrapper">
-            <span className="section-tag">ALUR KERJA</span>
-            <h2 className="section-title">Prosedur Quality & Sourcing Kami</h2>
-            <p className="section-subtitle">Bagaimana kami mengawal kualitas produk dari manufaktur global hingga tiba di gudang operasional Anda.</p>
+            <span className="section-tag">WHY CHOOSE US</span>
+            <h2 className="section-title">Quality & Project Support</h2>
+            <p className="section-subtitle">Kami memastikan setiap solusi Lighting & Power yang kami tawarkan didukung oleh produk berkualitas, pemilihan spesifikasi yang tepat, proses pengadaan yang terkontrol, serta dukungan purna jual.</p>
           </div>
 
           <div className="responsive-grid-4" style={{ gap: '24px', textAlign: 'center', position: 'relative' }}>
             {/* Step 1 */}
             <div style={{ backgroundColor: 'var(--pure-white)', padding: '30px 20px', borderRadius: '12px', border: '1px solid var(--light-gray)', boxShadow: '0 4px 15px rgba(0,0,0,0.01)' }}>
               <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--primary-navy)', color: 'var(--pure-white)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontWeight: 700 }}>1</div>
-              <h4 style={{ marginBottom: '8px', color: 'var(--primary-navy)' }}>Pabrik Terverifikasi</h4>
-              <p style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>Menjalin kemitraan langsung dengan manufaktur Lokal dan China berstandar internasional.</p>
+              <h4 style={{ marginBottom: '8px', color: 'var(--primary-navy)' }}>Mitra Manufaktur Terpercaya</h4>
+              <p style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>Bekerja sama dengan manufaktur lokal dan internasional yang memiliki standar kualitas dan kapabilitas produk yang sesuai dengan kebutuhan proyek.</p>
             </div>
             {/* Step 2 */}
             <div style={{ backgroundColor: 'var(--pure-white)', padding: '30px 20px', borderRadius: '12px', border: '1px solid var(--light-gray)', boxShadow: '0 4px 15px rgba(0,0,0,0.01)' }}>
               <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--primary-navy)', color: 'var(--pure-white)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontWeight: 700 }}>2</div>
-              <h4 style={{ marginBottom: '8px', color: 'var(--primary-navy)' }}>Uji Kelayakan (QC)</h4>
-              <p style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>Melakukan inspeksi batch fisik dan uji fungsi teknis kelistrikan sebelum pemuatan.</p>
+              <h4 style={{ marginBottom: '8px', color: 'var(--primary-navy)' }}>Quality & Specification Control</h4>
+              <p style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>Memastikan spesifikasi dan kualitas produk sesuai dengan kebutuhan aplikasi sebelum proses pengadaan dan pengiriman.</p>
             </div>
             {/* Step 3 */}
             <div style={{ backgroundColor: 'var(--pure-white)', padding: '30px 20px', borderRadius: '12px', border: '1px solid var(--light-gray)', boxShadow: '0 4px 15px rgba(0,0,0,0.01)' }}>
               <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--primary-navy)', color: 'var(--pure-white)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontWeight: 700 }}>3</div>
-              <h4 style={{ marginBottom: '8px', color: 'var(--primary-navy)' }}>Pengiriman Aman</h4>
-              <p style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>Prosedur logistik handal guna menjamin perlengkapan tiba dalam keadaan sempurna.</p>
+              <h4 style={{ marginBottom: '8px', color: 'var(--primary-navy)' }}>Reliable Project Delivery</h4>
+              <p style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>Proses pengadaan dan pengiriman yang terkoordinasi untuk mendukung kebutuhan proyek secara tepat dan profesional.</p>
             </div>
             {/* Step 4 */}
             <div style={{ backgroundColor: 'var(--pure-white)', padding: '30px 20px', borderRadius: '12px', border: '1px solid var(--light-gray)', boxShadow: '0 4px 15px rgba(0,0,0,0.01)' }}>
               <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--primary-navy)', color: 'var(--pure-white)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px', fontWeight: 700 }}>4</div>
-              <h4 style={{ marginBottom: '8px', color: 'var(--primary-navy)' }}>Garansi Penuh</h4>
-              <p style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>Dukungan garansi resmi ganti baru / perbaikan responsif oleh teknisi kami di Indonesia.</p>
+              <h4 style={{ marginBottom: '8px', color: 'var(--primary-navy)' }}>After-Sales Support</h4>
+              <p style={{ fontSize: '0.8rem', color: 'var(--medium-gray)' }}>Dukungan purna jual, layanan teknis, serta garansi produk sesuai ketentuan masing-masing produk.</p>
             </div>
           </div>
         </div>

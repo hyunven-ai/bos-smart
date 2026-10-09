@@ -9,9 +9,9 @@ export default function Home() {
   const [db, setDb] = useState(null);
   const [pages, setPages] = useState({
     hero: {
-      title: 'Smart Living Starts Here',
-      subtitle: 'Home & Smart Products • Electrical & Technical Supply',
-      description: 'Solusi terintegrasi untuk kebutuhan rumah pintar modern dan pasokan kelistrikan berkualitas tinggi. Dari pabrik lokal dan sourching China dengan Quality Control ketat dan After Sales Support professional.',
+      title: 'LIGHTING & POWER SOLUTIONS',
+      subtitle: 'Professional Lighting • Architectural & Façade Lighting • Stabilizer & Transformer',
+      description: 'Solusi pencahayaan dan sistem daya untuk kebutuhan komersial, industri, dan proyek. Didukung produk berkualitas, solusi yang disesuaikan dengan kebutuhan proyek, serta after-sales support yang profesional.',
       ctaPrimary: 'Lihat Produk',
       ctaSecondary: 'Hubungi Kami'
     },
@@ -22,7 +22,7 @@ export default function Home() {
     }
   });
   const [categories, setCategories] = useState([]);
-  const [whatsapp, setWhatsapp] = useState('628123456789');
+  const [whatsapp, setWhatsapp] = useState('6287888638008');
 
   useEffect(() => {
     const loadData = async () => {
@@ -60,50 +60,83 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section */}
-      <section className="hero" id="hero">
-        {/* Absolute Background Image and Fade Mask */}
-        <div className="hero-bg-image">
-          <div className="hero-bg-fade"></div>
-        </div>
+      {/* Master Hero Section - Full Bleed & 100% Responsive */}
+      <section className="hero-master" id="hero">
+        <div className="hero-master-bg"></div>
+        <div className="hero-master-overlay"></div>
 
-        <div className="container hero-grid">
-          <div className="hero-content">
-            <ScrollReveal animation="fade-up" duration={900}>
-              <h1 className="hero-title">{pages.hero?.title}</h1>
-              <p style={{ fontSize: '1.25rem', fontFamily: 'var(--font-headings)', fontWeight: 700, color: 'var(--primary-navy)', marginBottom: '16px', letterSpacing: '0.5px' }}>
-                {pages.hero?.subtitle}
+        <div className="container hero-master-container">
+          <div className="hero-master-content">
+            <ScrollReveal animation="fade-up" duration={800}>
+              {/* Brand Logo in Hero */}
+              <div className="hero-brand-badge">
+                <div className="hero-brand-top">
+                  <div className="hero-logo-box">
+                    <img src="/assets/bos-smart.webp" alt="BOS" className="hero-logo-img" />
+                  </div>
+                  <div className="hero-brand-name">
+                    <span>PT BERKAT</span>
+                    <span>OPTIMAL SEMESTA</span>
+                  </div>
+                </div>
+                <div className="hero-brand-tagline">
+                  INNOVATE <span className="tagline-dot">•</span> OPTIMIZE <span className="tagline-dot">•</span> GROW TOGETHER
+                </div>
+              </div>
+
+              <h1 className="hero-master-title">
+                LIGHTING &amp;<br />
+                <span className="text-gold-gradient">POWER SOLUTIONS</span>
+              </h1>
+
+              <p className="hero-master-subtitle">
+                Professional Lighting • Architectural &amp; Façade Lighting • Stabilizer &amp; Transformer
               </p>
-              <p className="hero-description" style={{ marginBottom: '28px' }}>
-                {pages.hero?.description}
+
+              <p className="hero-master-desc">
+                Solusi pencahayaan dan sistem daya untuk kebutuhan komersial, industri, dan proyek. Didukung produk berkualitas, solusi yang disesuaikan dengan kebutuhan proyek, serta after-sales support yang profesional.
               </p>
-              <div className="hero-buttons">
-                <Link href="/products" className="btn btn-electric btn-shine" style={{ borderRadius: '6px' }}>
-                  {pages.hero?.ctaPrimary} <i className="ri-arrow-right-line"></i>
+
+              {/* 4 Feature Badges in 1 Row */}
+              <div className="hero-master-badges">
+                <Link href="/products?category=professional-lighting" className="hero-badge-pill">
+                  <div className="hero-badge-icon"><i className="ri-lightbulb-line"></i></div>
+                  <div className="hero-badge-label">
+                    <span>Professional</span>
+                    <span>Lighting</span>
+                  </div>
                 </Link>
-                <Link href="/contact" className="btn btn-outline" style={{ borderColor: 'var(--electric-blue)', color: 'var(--electric-blue)', borderRadius: '6px' }}>
-                  {pages.hero?.ctaSecondary} <i className="ri-arrow-right-line"></i>
+                <Link href="/products" className="hero-badge-pill">
+                  <div className="hero-badge-icon"><i className="ri-building-line"></i></div>
+                  <div className="hero-badge-label">
+                    <span>Project</span>
+                    <span>Solutions</span>
+                  </div>
+                </Link>
+                <Link href="/why-choose-us" className="hero-badge-pill">
+                  <div className="hero-badge-icon"><i className="ri-shield-check-line"></i></div>
+                  <div className="hero-badge-label">
+                    <span>Reliable</span>
+                    <span>Quality</span>
+                  </div>
+                </Link>
+                <Link href="/contact" className="hero-badge-pill">
+                  <div className="hero-badge-icon"><i className="ri-customer-service-2-line"></i></div>
+                  <div className="hero-badge-label">
+                    <span>After-Sales</span>
+                    <span>Support</span>
+                  </div>
                 </Link>
               </div>
-            </ScrollReveal>
-          </div>
 
-          <div className="hero-visual">
-            {/* Floating Glassmorphism Grid Badge (Mockup) */}
-            <ScrollReveal animation="zoom-in" delay={300} duration={1000}>
-              <div className="hero-floating-badge">
-                <div className="hero-floating-badge-item">
-                  <i className="ri-home-wifi-line"></i> Smart Home
-                </div>
-                <div className="hero-floating-badge-item">
-                  <i className="ri-shield-check-line"></i> Reliable Quality
-                </div>
-                <div className="hero-floating-badge-item">
-                  <i className="ri-global-line"></i> Direct Sourcing
-                </div>
-                <div className="hero-floating-badge-item">
-                  <i className="ri-price-tag-3-line"></i> Best Value
-                </div>
+              {/* Action Buttons */}
+              <div className="hero-master-actions">
+                <Link href="/products" className="btn hero-btn-main">
+                  Lihat Produk <i className="ri-arrow-right-line"></i>
+                </Link>
+                <Link href="/contact" className="btn hero-btn-secondary">
+                  Hubungi Kami <i className="ri-arrow-right-line"></i>
+                </Link>
               </div>
             </ScrollReveal>
           </div>
@@ -116,10 +149,10 @@ export default function Home() {
           <div className="feature-item">
             <ScrollReveal animation="fade-up" delay={0} duration={600}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="feature-icon-box"><i className="ri-global-line"></i></div>
+                <div className="feature-icon-box"><i className="ri-lightbulb-line"></i></div>
                 <div className="feature-text">
-                  <h4>Direct Sourcing</h4>
-                  <p>Pabrik Pertama China</p>
+                  <h4>Professional Lighting</h4>
+                  <p>Mutu Standar Proyek</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -127,10 +160,10 @@ export default function Home() {
           <div className="feature-item">
             <ScrollReveal animation="fade-up" delay={100} duration={600}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="feature-icon-box"><i className="ri-shield-check-line"></i></div>
+                <div className="feature-icon-box"><i className="ri-building-line"></i></div>
                 <div className="feature-text">
-                  <h4>Quality Assurance</h4>
-                  <p>Proses QC Berlapis</p>
+                  <h4>Project Solutions</h4>
+                  <p>Kustomisasi Spesifikasi</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -138,10 +171,10 @@ export default function Home() {
           <div className="feature-item">
             <ScrollReveal animation="fade-up" delay={200} duration={600}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
-                <div className="feature-icon-box"><i className="ri-price-tag-3-line"></i></div>
+                <div className="feature-icon-box"><i className="ri-shield-check-line"></i></div>
                 <div className="feature-text">
-                  <h4>Competitive Price</h4>
-                  <p>Efisiensi Biaya Optimal</p>
+                  <h4>Reliable Quality</h4>
+                  <p>Kontrol QC Berlapis</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -151,8 +184,8 @@ export default function Home() {
               <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                 <div className="feature-icon-box"><i className="ri-customer-service-2-line"></i></div>
                 <div className="feature-text">
-                  <h4>Professional Support</h4>
-                  <p>Layanan Purna Jual Resmi</p>
+                  <h4>After-Sales Support</h4>
+                  <p>Garansi & Layanan Teknis</p>
                 </div>
               </div>
             </ScrollReveal>
@@ -174,10 +207,10 @@ export default function Home() {
                   <i className="ri-lightbulb-flash-line"></i> Innovate • Optimize • Grow Together
                 </div>
                 <p className="profile-desc">
-                  PT Berkat Optimal Semesta adalah perusahaan yang bergerak di bidang perdagangan dan distribusi produk elektronik dengan fokus pada tiga pilar utama bisnis: smart home solutions, power management systems, dan official distribution lighting products.
+                  PT Berkat Optimal Semesta (BOS SMART) adalah perusahaan yang bergerak di bidang Lighting & Power Solutions, dengan fokus pada solusi pencahayaan profesional, Architectural & Façade Lighting, serta Stabilizer & Transformer untuk kebutuhan komersial, industri, dan proyek.
                 </p>
                 <p className="profile-desc">
-                  Kami berkomitmen menyediakan produk berkualitas yang mendukung kebutuhan rumah tangga modern, sektor komersial, serta proyek industri ringan dengan pendekatan bisnis yang efisien dan berkelanjutan.
+                  Kami bekerja sama dengan mitra manufaktur terpercaya, baik lokal maupun internasional, untuk menghadirkan solusi yang andal, efisien, dan sesuai dengan kebutuhan setiap proyek di Indonesia.
                 </p>
               </ScrollReveal>
             </div>
@@ -185,8 +218,8 @@ export default function Home() {
               <ScrollReveal animation="fade-left" delay={200} duration={800}>
                 <div style={{ position: 'absolute', width: '100%', height: '100%', top: '12px', left: '12px', border: '2px dashed var(--neon-blue)', borderRadius: '12px', pointerEvents: 'none' }}></div>
                 <img 
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=800&auto=format&fit=crop" 
-                  alt="PT Berkat Optimal Semesta Office Showcase" 
+                  src="/about_lighting.jpg" 
+                  alt="BOS SMART Architectural & Façade Lighting" 
                   style={{ borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.08)', width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
                 />
               </ScrollReveal>
@@ -197,9 +230,9 @@ export default function Home() {
             <ScrollReveal animation="fade-up" delay={100} duration={800}>
               <div className="pillar-card">
                 <div className="pillar-number">01</div>
-                <h3 className="pillar-title">Smart Home & Smart Living</h3>
+                <h3 className="pillar-title">Professional Lighting</h3>
                 <p className="pillar-desc">
-                  Penyediaan produk elektronik rumah tangga modern yang mendukung efisiensi, kenyamanan, dan gaya hidup berbasis teknologi pintar.
+                  Penyediaan sistem pencahayaan LED profesional untuk kantor, komersial, dan proyek dengan standar mutu internasional.
                 </p>
               </div>
             </ScrollReveal>
@@ -207,9 +240,9 @@ export default function Home() {
             <ScrollReveal animation="fade-up" delay={200} duration={800}>
               <div className="pillar-card">
                 <div className="pillar-number">02</div>
-                <h3 className="pillar-title">Power Solution</h3>
+                <h3 className="pillar-title">Architectural & Façade Lighting</h3>
                 <p className="pillar-desc">
-                  Distribusi solusi kelistrikan seperti voltage stabilizer, transformer, dan perangkat proteksi daya untuk kebutuhan rumah tangga, komersial, dan proyek.
+                  Solusi pencahayaan arsitektural dan fasad gedung yang estetis, andal, serta dirancang khusus untuk memenuhi kebutuhan proyek modern.
                 </p>
               </div>
             </ScrollReveal>
@@ -217,9 +250,9 @@ export default function Home() {
             <ScrollReveal animation="fade-up" delay={300} duration={800}>
               <div className="pillar-card">
                 <div className="pillar-number">03</div>
-                <h3 className="pillar-title">Professional Lighting</h3>
+                <h3 className="pillar-title">Stabilizer & Transformer Solutions</h3>
                 <p className="pillar-desc">
-                  Distribusi resmi produk pencahayaan dari OSRAM & Ledvance untuk pasar Indonesia, mencakup solusi lampu LED dan sistem pencahayaan proyek.
+                  Distribusi solusi kelistrikan seperti voltage stabilizer, transformer, dan perangkat proteksi daya untuk komersial, industri, dan proyek.
                 </p>
               </div>
             </ScrollReveal>
@@ -270,30 +303,18 @@ export default function Home() {
         <h4 className="brand-carousel-title">Authorized Distributor & Brand Partners</h4>
         <div className="brand-marquee-wrapper">
           <div className="brand-marquee">
-            <span className="brand-logo-badge" style={{ display: 'inline-flex', flexDirection: 'column', gap: '4px', padding: '8px 24px', alignItems: 'center', height: 'auto' }}>
-              <span className="brand-ledvance" style={{ fontSize: '1rem', borderLeft: 'none', paddingLeft: 0 }}>LEDVANCE</span>
-              <span className="brand-osram" style={{ fontSize: '0.85rem' }}>OSRAM</span>
-            </span>
+            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
             <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
             <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
-            <span className="brand-logo-badge" style={{ display: 'inline-flex', flexDirection: 'column', gap: '4px', padding: '8px 24px', alignItems: 'center', height: 'auto' }}>
-              <span className="brand-ledvance" style={{ fontSize: '1rem', borderLeft: 'none', paddingLeft: 0 }}>LEDVANCE</span>
-              <span className="brand-osram" style={{ fontSize: '0.85rem' }}>OSRAM</span>
-            </span>
+            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
             <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
             <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
           </div>
           <div className="brand-marquee" aria-hidden="true">
-            <span className="brand-logo-badge" style={{ display: 'inline-flex', flexDirection: 'column', gap: '4px', padding: '8px 24px', alignItems: 'center', height: 'auto' }}>
-              <span className="brand-ledvance" style={{ fontSize: '1rem', borderLeft: 'none', paddingLeft: 0 }}>LEDVANCE</span>
-              <span className="brand-osram" style={{ fontSize: '0.85rem' }}>OSRAM</span>
-            </span>
+            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
             <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
             <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
-            <span className="brand-logo-badge" style={{ display: 'inline-flex', flexDirection: 'column', gap: '4px', padding: '8px 24px', alignItems: 'center', height: 'auto' }}>
-              <span className="brand-ledvance" style={{ fontSize: '1rem', borderLeft: 'none', paddingLeft: 0 }}>LEDVANCE</span>
-              <span className="brand-osram" style={{ fontSize: '0.85rem' }}>OSRAM</span>
-            </span>
+            <span className="brand-logo-badge brand-ledvance">LEDVANCE</span>
             <span className="brand-logo-badge brand-matsumega">MATSUMEGA</span>
             <span className="brand-logo-badge brand-mshita">M-SHITA Stabilizer</span>
           </div>
@@ -307,21 +328,21 @@ export default function Home() {
             <div className="section-title-wrapper">
               <span className="section-tag">PRODUK KAMI</span>
               <h2 className="section-title">Solusi Lengkap untuk Kebutuhan Anda</h2>
-              <p className="section-subtitle">Berbagai pilihan produk untuk rumah modern, kebutuhan sehari-hari, hingga kebutuhan teknis dan industri.</p>
+              <p className="section-subtitle">Berbagai pilihan produk pencahayaan profesional, fasad arsitektur, hingga stabilizer dan transformer untuk kebutuhan komersial dan proyek.</p>
             </div>
           </ScrollReveal>
 
           <div className="categories-grid">
             {categories.slice(0, 3).map((cat, index) => {
-              let sampleImg = '/cat_smart_home.png';
-              let iconClass = 'ri-cpu-line';
+              let sampleImg = 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800&auto=format&fit=crop';
+              let iconClass = 'ri-lightbulb-line';
 
-              if (cat.id === 'smart-home') {
-                sampleImg = '/cat_smart_home.png';
-                iconClass = 'ri-home-wifi-line';
-              } else if (cat.id === 'kitchen-living') {
-                sampleImg = '/cat_kitchen_living.png';
-                iconClass = 'ri-restaurant-2-line';
+              if (cat.id === 'professional-lighting') {
+                sampleImg = 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?q=80&w=800&auto=format&fit=crop';
+                iconClass = 'ri-lightbulb-line';
+              } else if (cat.id === 'architectural-facade') {
+                sampleImg = '/cat_architectural_facade.jpg';
+                iconClass = 'ri-building-line';
               } else if (cat.id === 'electrical-supply') {
                 sampleImg = '/cat_electrical_supply.png';
                 iconClass = 'ri-flashlight-line';
@@ -387,10 +408,10 @@ export default function Home() {
         <div className="container cta-banner-content">
           <ScrollReveal animation="zoom-in" duration={900}>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-              <h2 className="cta-banner-title">Siap Memulai Kerjasama Bersama Kami?</h2>
-              <p className="cta-banner-desc">Hubungi kami sekarang untuk kebutuhan produk Smart Home, Home Living, maupun Electrical & Technical Supply Anda.</p>
+              <h2 className="cta-banner-title">Siap Memulai Kerjasama Proyek Bersama Kami?</h2>
+              <p className="cta-banner-desc">Hubungi kami sekarang untuk kebutuhan produk Professional Lighting, Architectural & Façade Lighting, maupun Stabilizer & Transformer Solutions Anda.</p>
               <a
-                href={`https://wa.me/${whatsapp}?text=Halo%20BOS%20SMART,%20saya%20tertarik%20memulai%20kerjasama%20untuk%20produk%20smart%20home%20/%20kelistrikan.`}
+                href={`https://wa.me/${whatsapp}?text=Halo%20BOS%20SMART,%20saya%20tertarik%20dengan%20solusi%20Lighting%20%26%20Power%20Solutions%20untuk%20kebutuhan%20proyek.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn btn-whatsapp btn-shine"
