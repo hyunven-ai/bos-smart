@@ -216,11 +216,11 @@ export default function Home() {
             </div>
             <div style={{ position: 'relative' }}>
               <ScrollReveal animation="fade-left" delay={200} duration={800}>
-                <div style={{ position: 'absolute', width: '100%', height: '100%', top: '12px', left: '12px', border: '2px dashed var(--neon-blue)', borderRadius: '12px', pointerEvents: 'none' }}></div>
-                <img 
-                  src="/about_lighting.jpg" 
-                  alt="BOS SMART Architectural & Façade Lighting" 
-                  style={{ borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.08)', width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }} 
+                <div style={{ position: 'absolute', width: '100%', height: '100%', top: '12px', left: '12px', borderRadius: '12px', pointerEvents: 'none' }}></div>
+                <img
+                  src="/about_lighting.jpg"
+                  alt="BOS SMART Architectural & Façade Lighting"
+                  style={{ borderRadius: '12px', boxShadow: '0 8px 30px rgba(0,0,0,0.08)', width: '100%', height: 'auto', display: 'block', objectFit: 'cover' }}
                 />
               </ScrollReveal>
             </div>
