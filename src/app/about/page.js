@@ -90,25 +90,25 @@ export default function About() {
       </section>
 
       {/* Leadership Section */}
-      <section style={{ padding: '60px 0', backgroundColor: 'var(--off-white)', borderTop: '1px solid var(--light-gray)', borderBottom: '1px solid var(--light-gray)' }}>
+      <section className="leadership-section">
         <div className="container">
-          <div style={{ maxWidth: '840px', margin: '0 auto', backgroundColor: 'var(--pure-white)', borderRadius: '16px', padding: '36px 40px', border: '1px solid rgba(0, 82, 204, 0.1)', boxShadow: '0 8px 25px rgba(10,37,64,0.04)', display: 'flex', flexDirection: 'row', gap: '30px', alignItems: 'center', flexWrap: 'wrap' }}>
-            <div style={{ width: '88px', height: '88px', borderRadius: '50%', overflow: 'hidden', border: '3px solid var(--electric-blue)', boxShadow: '0 4px 14px rgba(0, 82, 204, 0.2)', flexShrink: 0 }}>
+          <div className="leadership-card">
+            <div className="leadership-avatar-box">
               <img
-                src="/direktor.jpg"
+                src="/assets/director.jpg"
                 alt="George D. Sukiat (Danny Sukiat) - Managing Director"
-                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top', display: 'block' }}
+                className="leadership-avatar-img"
               />
             </div>
-            <div style={{ flex: '1 1 320px' }}>
-              <span className="section-tag" style={{ textAlign: 'left', marginBottom: '6px', fontSize: '0.75rem' }}>LEADERSHIP</span>
-              <h3 style={{ fontSize: '1.4rem', color: 'var(--primary-navy)', margin: '2px 0', fontWeight: 800 }}>
-                George D. Sukiat <span style={{ fontWeight: 500, fontSize: '1.05rem', color: 'var(--medium-gray)' }}>(Danny Sukiat)</span>
+            <div className="leadership-info">
+              <span className="section-tag leadership-tag">LEADERSHIP</span>
+              <h3 className="leadership-name">
+                George D. Sukiat <span className="leadership-alias">(Danny Sukiat)</span>
               </h3>
-              <div style={{ color: 'var(--electric-blue)', fontWeight: 700, fontSize: '0.9rem', marginBottom: '10px', letterSpacing: '0.5px', textTransform: 'uppercase' }}>
+              <div className="leadership-role">
                 Managing Director
               </div>
-              <p style={{ color: 'var(--medium-gray)', fontSize: '0.92rem', lineHeight: '1.65', margin: 0 }}>
+              <p className="leadership-bio">
                 Memiliki pengalaman lebih dari 15 tahun di bidang manajemen, pengembangan bisnis, dan operasional, George D. Sukiat memimpin BOS SMART dalam mengembangkan solusi Lighting & Power Solutions yang andal untuk kebutuhan komersial, industri, dan proyek.
               </p>
             </div>
