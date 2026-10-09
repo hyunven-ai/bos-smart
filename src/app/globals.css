@@ -260,6 +260,20 @@ img {
   gap: 3px;
   text-decoration: none;
   cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Sembunyikan logo navbar di homepage saat di posisi paling atas (transparan) */
+.header.header-home.is-transparent .logo-wrapper {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-6px);
 }
 
 .logo-brand-row {
