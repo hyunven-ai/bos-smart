@@ -264,8 +264,8 @@ img {
   visibility: visible;
   transform: translateY(0);
   transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    visibility 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* Sembunyikan logo navbar di homepage saat di posisi paling atas (transparan) */
@@ -600,7 +600,7 @@ img {
 }
 
 .text-gold-gradient {
-  background: linear-gradient(135deg, #fce0ad 0%, #dfa85f 45%, #c5923f 100%);
+  background: linear-gradient(135deg, #9b7736 0%, #d88a25 45%, #fa9b02 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -618,7 +618,7 @@ img {
 
 .hero-master-desc {
   font-size: clamp(0.95rem, 1.05vw, 1.08rem);
-  color: rgba(255, 255, 255, 0.84);
+  color: rgb(255, 255, 255);
   line-height: 1.65;
   margin-bottom: 36px;
   max-width: 720px;
