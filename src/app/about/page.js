@@ -108,7 +108,7 @@ export default function About() {
                 Managing Director
               </div>
               <p className="leadership-bio">
-                Memiliki pengalaman lebih dari 15 tahun di bidang manajemen, pengembangan bisnis, dan operasional, George D. Sukiat memimpin BOS SMART dalam mengembangkan solusi Lighting & Power Solutions yang andal untuk kebutuhan komersial, industri, dan proyek.
+                Memiliki pengalaman lebih dari 15 tahun di bidang manajemen, pengembangan bisnis, dan operasional, George D. Sukiat memimpin BOS SMART dalam mengembangkan solusi Lighting & Power Solutions yang handal untuk kebutuhan komersial, industri, dan proyek.
               </p>
             </div>
           </div>
